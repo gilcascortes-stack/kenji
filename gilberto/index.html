@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-TNikIMjc2S/Vuxih5pwIxERDUPHro2YkntGAZFT8l2Q='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LCN9KmaJZgyGvgyAYJK/SvoUSkoLrP7g9QwaATBYALo='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light only">
@@ -168,6 +168,9 @@
     flex: none; padding: 6px 10px; border: 2px solid var(--ink); border-radius: 999px; background: #fff;
     font: 800 12px var(--font); color: var(--ink); cursor: pointer; white-space: nowrap;
   }
+  .card-actions { display: flex; flex: none; gap: 6px; align-items: center; }
+  .card a.speak { display: inline-flex; align-items: center; gap: 4px; text-decoration: none; color: var(--ink); }
+  .card a.speak.results { background: #e3f6e8; }
   .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; padding: 0; list-style: none; }
   .tags li { margin: 0; padding: 2px 9px; border-radius: 999px; background: #e9f3ff; border: 1px solid #b9d4f2; font-size: 12px; font-weight: 700; color: #1d3f66; }
   .card a { color: var(--link); font-weight: 700; }
@@ -192,6 +195,7 @@
   @media (max-width: 480px) {
     .tab { font-size: 14px; padding: 9px 6px; }
     .card-head { flex-direction: column; gap: 6px; }
+    .card-actions { flex-wrap: wrap; }
   }
   @media (pointer: coarse) {
     .chip { min-height: 44px; padding: 8px 14px; font-size: 14px; }
@@ -284,7 +288,6 @@
         <p class="facts">Grimsby, Ontario, Canada · Open to remote work · Authorized to work in Canada</p>
         <div class="id-links">
           <a id="linkedin-link" href="https://www.linkedin.com/in/gcastaned">LinkedIn</a>
-          <a class="alt" id="results-link" href="results.html">Test results</a>
         </div>
       </header>
       <h2 class="sr-only" id="ask-heading">Ask Socrates about Gilberto</h2>
@@ -702,7 +705,8 @@
         "Whisper",
         "Claude Code",
         "Safety by design"
-      ]
+      ],
+      "results": true
     },
     {
       "id": "pomodoro",
@@ -728,7 +732,8 @@
         "Maestro",
         "adb",
         "JUnit report"
-      ]
+      ],
+      "results": true
     },
     {
       "id": "pathlight",
@@ -854,7 +859,7 @@
         "tested this page",
         "how is this page tested"
       ],
-      "answer": "This page and his projects are checked by automated tests: Playwright for this page in Chrome and in Safari's engine, script checks for its content and voice clips, and Maestro for his Android app. Open Test results to see each check, the tool that verified it, and whether it passed."
+      "answer": "This page and his projects are checked by automated tests: Playwright for this page in Chrome and in Safari's engine, script checks for its content and voice clips, and Maestro for his Android app. In the Projects tab, the Test results button on a project shows each of its checks, the tool that verified it, and whether it passed."
     },
     {
       "title": "Source code",
@@ -1202,10 +1207,13 @@
     const btn = el("button", { class: "speak", type: "button", "aria-label": `Ask Socrates about ${item.role ? item.role + " at " : ""}${item.org}` },
       el("span", { "aria-hidden": "true" }, "🔊 "), "Ask Socrates");
     btn.addEventListener("click", () => { answer(spoken(item), `${item.role ? item.role + " at " : ""}${item.org}`); showSocrates(); });
+    const actions = el("div", { class: "card-actions" }, btn);
+    if (item.results) actions.append(el("a", { class: "speak results", href: `results.html#${item.id}`, "aria-label": `Test results for ${item.org}` },
+      el("span", { "aria-hidden": "true" }, "✓ "), "Test results"));
     const heading = el("div", {}, el("h3", {}, kind === "exp" ? item.role : item.org),
                        el("p", { class: "meta" }, kind === "exp" ? `${item.org} · ${item.meta}` : item.meta));
     const article = el("article", { class: "card", id: item.id },
-      el("div", { class: "card-head" }, heading, btn),
+      el("div", { class: "card-head" }, heading, actions),
       el("p", {}, item.summary),
       el("ul", {}, ...item.points.map((p) => el("li", {}, p))));
     if (item.tags) article.append(el("ul", { class: "tags", "aria-label": "Technologies" }, ...item.tags.map((t) => el("li", {}, t))));

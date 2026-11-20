@@ -22,7 +22,11 @@
     border-radius: 14px; background: var(--accent); color: var(--ink); font-weight: 800; text-decoration: none; }
   .totals { font-weight: 800; }
   .group { margin-top: 18px; background: var(--card); border: 3px solid var(--ink); border-radius: 18px; padding: 16px 18px; }
-  h2 { margin: 0; font-size: 20px; color: var(--ink); }
+  .project { margin-top: 26px; }
+  .project > h2 { margin: 0; font-size: 22px; color: var(--ink); background: var(--parchment); border: 3px solid var(--ink); border-radius: 14px; padding: 8px 14px; display: inline-block; }
+  .project > .totals, .project > .what { margin: 6px 2px 0; }
+  .project:target > h2 { background: var(--accent); }
+  h3 { margin: 0; font-size: 18px; color: var(--ink); }
   .what { margin: 4px 0 8px; }
   .meta { margin: 0 0 12px; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 14px; color: var(--muted); }
   .meta strong { color: var(--text); }
@@ -51,18 +55,22 @@
 <main>
   <header class="top">
     <h1>Test results</h1>
-    <p>Automated tests of Gilberto's Socrates page and his Pomodoro Android app. Each section names the tool that verified it. Only pass/fail results are published here; Gilberto walks through the test code in interviews.</p>
-    <p class="totals">99 passed · 2 failed · the failures are real app bugs the tests found</p>
+    <p>Automated tests of Gilberto's Socrates page and his Pomodoro Android app. Results are grouped by project, and each section names the tool that verified it. Only pass/fail results are published here; Gilberto walks through the test code in interviews.</p>
+    <p class="totals">110 passed · 2 failed · the failures are real app bugs the tests found</p>
     <a class="back" href="./">Back to Socrates</a>
   </header>
+<section class="project" id="kenji" aria-labelledby="kenji-h">
+  <h2 id="kenji-h">Kenji · voice assistant for macOS</h2>
+  <p class="what">Tests of the Kenji project's public website: the Socrates portfolio page.</p>
+  <p class="totals">104 passed · 0 failed</p>
 <section class="group" id="playwright">
-  <h2>Socrates page in the browser</h2>
+  <h3>Socrates page in the browser</h3>
   <p class="what">Checks the page the way a recruiter uses it: what shows on the first screen, the answers to typed and suggested questions, the next steps when Socrates doesn't know, the voice setting and the page's privacy.</p>
   <ul class="meta">
     <li><strong>Verified with:</strong> Playwright 1.65.1</li>
     <li><strong>Where:</strong> Chrome · phone, Safari engine · iPhone, Chrome · desktop</li>
     <li><strong>Last run:</strong> November 20, 2026</li>
-    <li><strong>Results:</strong> 53 passed · 0 failed</li>
+    <li><strong>Results:</strong> 62 passed · 0 failed</li>
   </ul>
   <table>
     <thead><tr><th scope="col">Test</th><th scope="col">Chrome · phone</th><th scope="col">Safari engine · iPhone</th><th scope="col">Chrome · desktop</th></tr></thead>
@@ -84,18 +92,21 @@
 <tr><th scope="row">The page doesn't scroll sideways on a narrow phone</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r skipped">– Not applicable</span></td></tr>
 <tr><th scope="row">Shared links show Gilberto's name and role as the preview</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
 <tr><th scope="row">The page sends nothing to other websites</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
-<tr><th scope="row">The Test results button opens the results page</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">The header shows LinkedIn only, without a Test results button</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Each tested project has a Test results button next to Ask Socrates</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">The pomodoro Test results button opens that project's results</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">The kenji Test results button opens that project's results</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
     </tbody>
   </table>
 </section>
 <section class="group" id="checks">
-  <h2>Socrates page content</h2>
+  <h3>Socrates page content</h3>
   <p class="what">Checks the facts and answers behind the page: Gilberto's name, role and LinkedIn agree everywhere, recruiter questions reach the right answer, every answer has its voice clip, and the page's security settings match its code.</p>
   <ul class="meta">
     <li><strong>Verified with:</strong> Node.js test runner (script checks)</li>
     <li><strong>Where:</strong> The page's files, before publishing</li>
     <li><strong>Last run:</strong> November 20, 2026</li>
-    <li><strong>Results:</strong> 40 passed · 0 failed</li>
+    <li><strong>Results:</strong> 42 passed · 0 failed</li>
   </ul>
   <table>
     <thead><tr><th scope="col">Test</th><th scope="col">Result</th></tr></thead>
@@ -104,6 +115,8 @@
 <tr><th scope="row">The security policy's script hash matches the page script</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
 <tr><th scope="row">Every job and project has a unique, valid ID</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
 <tr><th scope="row">The published pages don't link to or describe how to get the private code</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Every project with a Test results button has its own section on the results page, and no section is orphaned</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">The header no longer has a Test results button</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
 <tr><th scope="row">Every link in the data is https</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
 <tr><th scope="row">Every answer has a recorded voice clip</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
 <tr><th scope="row">No leftover clips that no answer uses</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
@@ -143,8 +156,12 @@
     </tbody>
   </table>
 </section>
+</section>
+<section class="project" id="pomodoro" aria-labelledby="pomodoro-h">
+  <h2 id="pomodoro-h">Pomodoro + Maestro</h2>
+  <p class="totals">6 passed · 2 failed</p>
 <section class="group" id="maestro">
-  <h2>Pomodoro Android app</h2>
+  <h3>Pomodoro Android app</h3>
   <p class="what">UI tests of a small Android timer app, including what happens when the phone is rotated, locked, left and reopened, or when Android closes the app.</p>
   <ul class="meta">
     <li><strong>Verified with:</strong> Maestro</li>
@@ -165,6 +182,7 @@
 <tr><th scope="row">Pause and resume</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
     </tbody>
   </table>
+</section>
 </section>
   <footer><p><a href="https://www.linkedin.com/in/gcastaned">Gilberto Castañeda on LinkedIn</a></p></footer>
 </main>
