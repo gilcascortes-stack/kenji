@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-LCN9KmaJZgyGvgyAYJK/SvoUSkoLrP7g9QwaATBYALo='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-qsn2sX6TBtksyuUG9p2e5Kf93m35LT9tQdUOLzusW4M='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light only">
@@ -763,7 +763,8 @@
         "Supertest",
         "autocannon",
         "Firestore"
-      ]
+      ],
+      "results": true
     }
   ];
 
@@ -859,7 +860,7 @@
         "tested this page",
         "how is this page tested"
       ],
-      "answer": "This page and his projects are checked by automated tests: Playwright for this page in Chrome and in Safari's engine, script checks for its content and voice clips, and Maestro for his Android app. In the Projects tab, the Test results button on a project shows each of its checks, the tool that verified it, and whether it passed."
+      "answer": "This page and his projects are checked by automated tests: Playwright for this page in Chrome and in Safari's engine, script checks for its content and voice clips, Maestro for his Android app, and Jest and Playwright for his Pathlight prototype. In the Projects tab, the Test results button on a project shows each of its checks, the tool that verified it, and whether it passed."
     },
     {
       "title": "Source code",
@@ -1468,6 +1469,17 @@
       rec.start();
     });
   }
+  // Links like ./#pomodoro (from "Back to Socrates" on the results page) open the Projects tab at that card.
+  function openFromLink() {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const target = PROJECTS.some((p) => p.id === id) && $(id);
+    if (!target) return;
+    selectTab($("tab-ai"));
+    target.scrollIntoView({ block: stacked.matches ? "start" : "nearest" });
+    flash(target);
+  }
+  openFromLink();
+  window.addEventListener("hashchange", openFromLink);
 </script>
 </body>
 </html>

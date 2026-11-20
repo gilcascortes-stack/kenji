@@ -7,7 +7,7 @@
 <meta name="color-scheme" content="light only">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Test results · Gilberto Castañeda</title>
-<meta name="description" content="Pass/fail results of the automated tests of Gilberto Castañeda's Socrates page and Pomodoro Android app.">
+<meta name="description" content="Pass/fail results of the automated tests of Gilberto Castañeda's projects: the Socrates page, the Pomodoro Android app and the Pathlight family-safety prototype.">
 <style>
   :root { --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     --ink: #1a1a2e; --text: #0f2a4f; --muted: #3a5a80; --sky: #bfe5ff; --card: #fff; --parchment: #fffaf0; --accent: #ffd23f;
@@ -18,14 +18,15 @@
   .top { background: var(--parchment); border: 3px solid var(--ink); border-radius: 18px; padding: 16px 18px; color: var(--ink); }
   h1 { margin: 0; font-size: 26px; line-height: 1.2; }
   .top p { margin: 6px 0 0; }
-  .back { display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; padding: 0 16px; border: 3px solid var(--ink);
+  .back { flex: none; display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; padding: 0 16px; border: 3px solid var(--ink);
     border-radius: 14px; background: var(--accent); color: var(--ink); font-weight: 800; text-decoration: none; }
   .totals { font-weight: 800; }
   .group { margin-top: 18px; background: var(--card); border: 3px solid var(--ink); border-radius: 18px; padding: 16px 18px; }
   .project { margin-top: 26px; }
-  .project > h2 { margin: 0; font-size: 22px; color: var(--ink); background: var(--parchment); border: 3px solid var(--ink); border-radius: 14px; padding: 8px 14px; display: inline-block; }
+  .project-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+  .project-head h2 { margin: 0; font-size: 22px; line-height: 1.25; color: var(--ink); }
+  .project-head .back { margin-top: 0; }
   .project > .totals, .project > .what { margin: 6px 2px 0; }
-  .project:target > h2 { background: var(--accent); }
   h3 { margin: 0; font-size: 18px; color: var(--ink); }
   .what { margin: 4px 0 8px; }
   .meta { margin: 0 0 12px; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 14px; color: var(--muted); }
@@ -55,14 +56,13 @@
 <main>
   <header class="top">
     <h1>Test results</h1>
-    <p>Automated tests of Gilberto's Socrates page and his Pomodoro Android app. Results are grouped by project, and each section names the tool that verified it. Only pass/fail results are published here; Gilberto walks through the test code in interviews.</p>
-    <p class="totals">110 passed · 2 failed · the failures are real app bugs the tests found</p>
-    <a class="back" href="./">Back to Socrates</a>
+    <p>Automated tests of Gilberto's projects. Results are grouped by project, and each section names the tool that verified it. Only pass/fail results are published here; Gilberto walks through the test code in interviews.</p>
+    <p class="totals">140 passed · 2 failed · the failures are real app bugs the tests found</p>
   </header>
 <section class="project" id="kenji" aria-labelledby="kenji-h">
-  <h2 id="kenji-h">Kenji · voice assistant for macOS</h2>
+  <div class="project-head"><h2 id="kenji-h">Kenji · voice assistant for macOS</h2><a class="back" href="./#kenji">Back to Socrates</a></div>
   <p class="what">Tests of the Kenji project's public website: the Socrates portfolio page.</p>
-  <p class="totals">104 passed · 0 failed</p>
+  <p class="totals">113 passed · 0 failed</p>
 <section class="group" id="playwright">
   <h3>Socrates page in the browser</h3>
   <p class="what">Checks the page the way a recruiter uses it: what shows on the first screen, the answers to typed and suggested questions, the next steps when Socrates doesn't know, the voice setting and the page's privacy.</p>
@@ -70,7 +70,7 @@
     <li><strong>Verified with:</strong> Playwright 1.65.1</li>
     <li><strong>Where:</strong> Chrome · phone, Safari engine · iPhone, Chrome · desktop</li>
     <li><strong>Last run:</strong> November 20, 2026</li>
-    <li><strong>Results:</strong> 62 passed · 0 failed</li>
+    <li><strong>Results:</strong> 71 passed · 0 failed</li>
   </ul>
   <table>
     <thead><tr><th scope="col">Test</th><th scope="col">Chrome · phone</th><th scope="col">Safari engine · iPhone</th><th scope="col">Chrome · desktop</th></tr></thead>
@@ -96,6 +96,9 @@
 <tr><th scope="row">Each tested project has a Test results button next to Ask Socrates</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
 <tr><th scope="row">The pomodoro Test results button opens that project's results</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
 <tr><th scope="row">The kenji Test results button opens that project's results</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">The pathlight Test results button opens that project's results</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">The results page has no Back to Socrates button at the top, only one beside each project name</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Back to Socrates returns to that project's card in the Projects tab</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
     </tbody>
   </table>
 </section>
@@ -158,7 +161,7 @@
 </section>
 </section>
 <section class="project" id="pomodoro" aria-labelledby="pomodoro-h">
-  <h2 id="pomodoro-h">Pomodoro + Maestro</h2>
+  <div class="project-head"><h2 id="pomodoro-h">Pomodoro + Maestro</h2><a class="back" href="./#pomodoro">Back to Socrates</a></div>
   <p class="totals">6 passed · 2 failed</p>
 <section class="group" id="maestro">
   <h3>Pomodoro Android app</h3>
@@ -180,6 +183,62 @@
 <tr><th scope="row">Leave the app and come back</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
 <tr><th scope="row">Custom focus length runs to completion</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
 <tr><th scope="row">Pause and resume</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+    </tbody>
+  </table>
+</section>
+</section>
+<section class="project" id="pathlight" aria-labelledby="pathlight-h">
+  <div class="project-head"><h2 id="pathlight-h">Pathlight · family-safety prototype</h2><a class="back" href="./#pathlight">Back to Socrates</a></div>
+  <p class="what">Its load test (autocannon) reports speed numbers rather than pass/fail, so it isn't listed here.</p>
+  <p class="totals">21 passed · 0 failed</p>
+<section class="group" id="pathlight-api">
+  <h3>Pathlight server and API</h3>
+  <p class="what">Checks the safe-zone math and every API route: login, locations, safe-zone enter and exit alerts, low-battery alerts, two-way messages, SOS, contacts, reminders and metrics.</p>
+  <ul class="meta">
+    <li><strong>Verified with:</strong> Jest and Supertest</li>
+    <li><strong>Where:</strong> Node.js, against the Firestore emulator</li>
+    <li><strong>Last run:</strong> November 20, 2026</li>
+    <li><strong>Results:</strong> 20 passed · 0 failed</li>
+  </ul>
+  <table>
+    <thead><tr><th scope="col">Test</th><th scope="col">Result</th></tr></thead>
+    <tbody>
+<tr><th scope="row">haversineDistanceMeters: is zero for identical points</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">haversineDistanceMeters: matches the ~111.3km/degree-of-latitude approximation</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">haversineDistanceMeters: is symmetric</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">isInsideZone: true at the zone center</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">isInsideZone: false far outside the radius</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">isInsideZone: true exactly on the boundary</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">detectTransition: returns &quot;enter&quot; when going from outside to inside</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">detectTransition: returns &quot;exit&quot; when going from inside to outside</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">detectTransition: returns null when state is unchanged (inside)</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">detectTransition: returns null when state is unchanged (outside)</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">family safety API: login creates and returns a family</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">family safety API: login rejects a missing family code</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">family safety API: posting and listing locations</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">family safety API: safe zone enter/exit alerts fire on transition</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">family safety API: low battery alert fires once when crossing the threshold</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">family safety API: messages flow both ways</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">family safety API: SOS creates an alert</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">family safety API: contacts can be added and removed</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">family safety API: reminders require HH:MM time format</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">family safety API: /metrics reports per-route stats after traffic</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+    </tbody>
+  </table>
+</section>
+<section class="group" id="pathlight-e2e">
+  <h3>Pathlight in the browser</h3>
+  <p class="what">One end-to-end scenario on the parent dashboard and the watch simulator: both log in to the same family, send messages both ways, press SOS on the watch, and get a safe-zone alert during a simulated walk.</p>
+  <ul class="meta">
+    <li><strong>Verified with:</strong> Playwright 1.64.0</li>
+    <li><strong>Where:</strong> Chromium, against the Firestore emulator</li>
+    <li><strong>Last run:</strong> November 20, 2026</li>
+    <li><strong>Results:</strong> 1 passed · 0 failed</li>
+  </ul>
+  <table>
+    <thead><tr><th scope="col">Test</th><th scope="col">Result</th></tr></thead>
+    <tbody>
+<tr><th scope="row">Login, two-way messaging, SOS, and a safe zone alert</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
     </tbody>
   </table>
 </section>
