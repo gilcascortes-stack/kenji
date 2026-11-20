@@ -1,0 +1,1465 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-TNikIMjc2S/Vuxih5pwIxERDUPHro2YkntGAZFT8l2Q='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#3d9be9">
+<meta name="format-detection" content="telephone=no">
+<title>Gilberto Castañeda · Senior Software QA Engineer</title>
+<meta name="description" content="Ask Socrates about Gilberto Castañeda, Senior Software QA Engineer with 14+ years in mobile, web and API testing.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Gilberto Castañeda · Senior Software QA Engineer">
+<meta property="og:description" content="14+ years in mobile, web and API testing. Grimsby, Ontario, Canada · open to remote work · authorized to work in Canada.">
+<meta property="og:url" content="https://gilcascortes-stack.github.io/kenji/gilberto/">
+<meta name="twitter:card" content="summary">
+<style>
+  :root {
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --sky-top: #3d9be9; --sky-bottom: #bfe5ff; --ink: #1a1a2e; --text: #0f2a4f; --muted: #3a5a80;
+    --bubble: #ffffff; --aura: #ffffff; --parchment: #fffaf0; --accent: #ffd23f; --link: #0b5cad;
+    --skin: #d29a6c; --skin-shade: #b07a4f;
+    --sage: #f4f1ea; --sage-shade: #c8c2b4;
+    --gi: #f3eee2; --gi-shade: #d8ceb6; --belt: #b8954f; --wrap: #e8dfca; --boot: #8a5a32;
+  }
+  * { box-sizing: border-box; }
+  button, a, input { touch-action: manipulation; }
+  .card { scroll-margin-top: 16px; }
+  .card.flash { animation: flash 1.6s ease-out; }
+  @keyframes flash { 0%, 40% { background: #fff3c4; } 100% { background: transparent; } }
+  html { min-height: 100%; background: var(--sky-bottom); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    margin: 0; min-height: 100vh; min-height: 100svh; overflow-x: hidden; background: var(--sky-bottom);
+    -webkit-tap-highlight-color: transparent;
+    color: var(--text); font: 16px/1.45 var(--font);
+  }
+  body[data-mood="listening"] { --aura: #d9b8ff; }
+  body[data-mood="thinking"]  { --aura: #8ff7ff; }
+  body[data-mood="talking"]   { --aura: #ffd34d; }
+
+  body::before { content: ""; position: fixed; inset: 0; z-index: 0; background: linear-gradient(var(--sky-top), var(--sky-bottom)); }
+  .sky { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+  .sky .drift-a { animation: drift 90s ease-in-out infinite alternate; }
+  .sky .drift-b { animation: drift 130s ease-in-out infinite alternate-reverse; }
+  @keyframes drift { from { transform: translateX(-40px); } to { transform: translateX(40px); } }
+
+  .page { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: max(24px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-area-inset-left)); }
+
+  .scene { display: flex; align-items: flex-start; justify-content: center; gap: 28px; }
+  .stage { position: sticky; top: 16px; flex: 0 0 380px; width: 380px; }
+
+  .bubble {
+    background: var(--bubble); color: var(--ink); border-radius: 17px;
+    padding: 12px 16px; min-height: 52px; position: relative; font-weight: 600;
+    max-height: 40vh; max-height: 40svh; overflow: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
+  }
+  .bubble .q { display: block; font: 800 12px/1.3 var(--font); letter-spacing: .06em; text-transform: uppercase; color: #8a6d2f; margin-bottom: 4px; }
+  .bubble-wrap { position: relative; z-index: 2; margin-bottom: 4px; background: var(--bubble);
+    border: 3px solid var(--ink); border-radius: 20px; }
+  .bubble:focus-visible { outline-offset: -4px; box-shadow: inset 0 0 0 7px var(--accent); }
+  .bubble-wrap::after {
+    content: ""; position: absolute; bottom: -13px; left: 50%; margin-left: -10px; width: 18px; height: 18px;
+    background: var(--bubble); border-right: 3px solid var(--ink); border-bottom: 3px solid var(--ink);
+    transform: rotate(45deg) skew(10deg, 10deg);
+  }
+
+  svg.hero-svg { width: 100%; height: min(48vh, 430px); display: block; overflow: visible; margin-top: 6px; }
+  .ink { stroke: var(--ink); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+  .line { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; }
+  .aura-stop { stop-color: var(--aura); transition: stop-color .4s; }
+  .aura { transform-origin: 150px 280px; animation: aura 3s ease-in-out infinite; opacity: .55; }
+  body[data-mood="thinking"] .aura { animation-duration: .6s; opacity: 1; }
+  body[data-mood="listening"] .aura { animation-duration: 1.2s; opacity: .9; }
+  body[data-mood="talking"] .aura { opacity: .85; }
+  @keyframes aura { 50% { transform: scale(1.06); } }
+  .char { animation: bob 3s ease-in-out infinite; }
+  @keyframes bob { 50% { transform: translateY(-10px); } }
+  .eyes { transform-origin: 150px 162px; animation: blink 4.5s infinite; }
+  @keyframes blink { 0%, 95%, 100% { transform: scaleY(1); } 97% { transform: scaleY(.1); } }
+  .eyes-happy, .mouth-talk, .sweat, .sparks { display: none; }
+  body[data-talking="true"] .mouth-smile { display: none; }
+  body[data-talking="true"] .mouth-talk { display: inline; }
+  .mouth-talk { transform-origin: 150px 210px; animation: talk .18s ease-in-out infinite alternate; }
+  @keyframes talk { from { transform: scaleY(.35); } to { transform: scaleY(1.05); } }
+  body[data-mood="thinking"] .sparks { display: inline; }
+  .sparks path { animation: spark 1s ease-in-out infinite; }
+  .sparks path:nth-child(2) { animation-delay: .25s; }
+  .sparks path:nth-child(3) { animation-delay: .5s; }
+  .sparks path:nth-child(4) { animation-delay: .75s; }
+  @keyframes spark { 50% { opacity: .1; transform: translateY(-8px); } }
+  .brows { transition: transform .3s; }
+  body[data-mood="thinking"] .brows { transform: translateY(3px); }
+  body[data-mood="listening"] .brows { transform: translateY(-3px); }
+  .arm-r { transform-origin: 224px 220px; }
+
+  .status { text-align: center; font-weight: 800; font-size: 13px; letter-spacing: .05em; margin-top: 2px; min-height: 18px; }
+  .ask { display: flex; gap: 8px; margin-top: 8px; }
+  .ask input {
+    flex: 1; min-width: 0; padding: 12px 14px; border: 3px solid var(--ink); border-radius: 14px;
+    font: 600 16px var(--font); color: var(--ink); background: #fff;
+  }
+  .ask input:focus-visible, button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--ink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--accent);
+  }
+  .panel:focus { outline: none; }
+  .skip { position: absolute; left: 16px; top: -100px; z-index: 20; padding: 10px 16px; border: 3px solid var(--ink); border-radius: 12px;
+    background: #fff; color: var(--ink); font-weight: 800; }
+  .skip:focus { top: max(12px, env(safe-area-inset-top)); }
+  .ask-label { display: block; margin-top: 10px; font-weight: 800; font-size: 14px; color: var(--ink); }
+  .ask-label + .ask { margin-top: 4px; }
+  .card a, footer a { text-decoration: underline; text-underline-offset: 2px; }
+  footer p { margin: 0 0 6px; max-width: 760px; margin-inline: auto; }
+  /* WCAG 2.2.2: visitors can pause all moving content */
+  body[data-motion="paused"] *, body[data-motion="paused"] *::before { animation-play-state: paused !important; transition: none !important; }
+  .btn {
+    padding: 0 14px; min-height: 46px; border: 3px solid var(--ink); border-radius: 14px; background: var(--accent);
+    font: 800 15px var(--font); color: var(--ink); cursor: pointer;
+  }
+  .btn.round { width: 50px; padding: 0; font-size: 20px; background: #fff; }
+  .btn.round[aria-pressed="true"] { background: #d9b8ff; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; justify-content: center; }
+  .chip {
+    padding: 6px 12px; border: 2px solid var(--ink); border-radius: 999px; background: var(--parchment);
+    font: 700 13px var(--font); color: var(--ink); cursor: pointer; box-shadow: 0 2px 0 var(--ink);
+  }
+  .chip:active { transform: translateY(2px); box-shadow: none; }
+
+  /* who Gilberto is, readable on the first screen with no tap and no sound */
+  .id-card { position: relative; z-index: 2; margin-bottom: 10px; padding: 12px 14px; background: var(--parchment);
+    border: 3px solid var(--ink); border-radius: 18px; color: var(--ink); text-align: center; }
+  .id-card h1 { margin: 0; font-size: 22px; line-height: 1.2; }
+  .id-card .role { margin: 2px 0 0; font-size: 15px; font-weight: 700; }
+  .id-card .facts { margin: 4px 0 0; font-size: 14px; color: var(--text); }
+  .id-links { display: flex; justify-content: center; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .id-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 3px solid var(--ink);
+    border-radius: 14px; background: var(--accent); color: var(--ink); font-weight: 800; font-size: 15px; text-decoration: none; }
+  .id-links a.alt { background: #fff; }
+  /* shown when Socrates doesn't know: always a next step */
+  .next { padding: 0 12px 12px; }
+  .next p { margin: 0 0 6px; font-size: 13px; font-weight: 800; color: #8a6d2f; text-transform: uppercase; letter-spacing: .05em; }
+  .next .chips { margin-top: 0; justify-content: flex-start; }
+  .next a.chip { text-decoration: none; display: inline-flex; align-items: center; }
+  .tools { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 14px; margin-top: 10px; font-size: 13px; font-weight: 700; }
+  .tools button { border: 0; background: none; color: var(--text); font: inherit; cursor: pointer; text-decoration: underline; white-space: nowrap; }
+
+  .panel {
+    flex: 1 1 620px; min-width: 0; max-width: 720px; padding: 18px 20px 22px;
+    border: 3px solid var(--ink); border-radius: 20px; background: var(--parchment); color: var(--ink);
+    box-shadow: 0 10px 30px rgba(15, 42, 79, .3);
+  }
+  .tabs { display: flex; gap: 8px; border-bottom: 3px solid var(--ink); margin: 0 -20px 16px; padding: 0 20px; }
+  .tab {
+    flex: 1; padding: 10px 12px; border: 3px solid var(--ink); border-bottom: 0; border-radius: 14px 14px 0 0;
+    background: #efe7d4; font: 800 16px var(--font); color: var(--ink); cursor: pointer; margin-bottom: -3px;
+  }
+  .tab[aria-selected="true"] { background: var(--parchment); border-bottom: 3px solid var(--parchment); }
+  .intro { margin: 0 0 14px; color: var(--muted); font-size: 15px; }
+  .card { padding: 14px 0 16px; border-top: 2px dashed var(--sage-shade); }
+  .card:first-of-type { border-top: 0; padding-top: 0; }
+  .card-head { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+  .card h3 { margin: 0; font-size: 18px; }
+  .card .meta { margin: 2px 0 6px; color: var(--muted); font-size: 14px; font-weight: 600; }
+  .card p { margin: 0 0 6px; font-size: 15px; }
+  .card ul { margin: 4px 0 0; padding-left: 20px; font-size: 14.5px; }
+  .card li { margin: 3px 0; }
+  .speak {
+    flex: none; padding: 6px 10px; border: 2px solid var(--ink); border-radius: 999px; background: #fff;
+    font: 800 12px var(--font); color: var(--ink); cursor: pointer; white-space: nowrap;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; padding: 0; list-style: none; }
+  .tags li { margin: 0; padding: 2px 9px; border-radius: 999px; background: #e9f3ff; border: 1px solid #b9d4f2; font-size: 12px; font-weight: 700; color: #1d3f66; }
+  .card a { color: var(--link); font-weight: 700; }
+  .skills { margin-top: 14px; padding-top: 12px; border-top: 3px solid var(--ink); }
+  .skills h3 { margin: 0 0 6px; font-size: 16px; }
+  .skills p { margin: 0 0 6px; font-size: 14px; }
+  footer { position: relative; z-index: 1; text-align: center; font-size: 14px; color: var(--text); padding: 0 16px max(24px, env(safe-area-inset-bottom)); }
+  footer a { color: var(--text); font-weight: 700; }
+  .contact { position: relative; z-index: 1; margin: 0 14px; padding: 0 2px 12px;
+    text-align: center; font-size: 15px; line-height: 1.5; color: var(--ink); }
+  .contact a { color: var(--link); font-weight: 800; text-decoration: underline; text-underline-offset: 2px; }
+  .contact a:hover { text-decoration-thickness: 2px; }
+  .contact a:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; box-shadow: 0 0 0 5px var(--accent); border-radius: 4px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  @media (max-width: 960px) {
+    .scene { flex-direction: column; align-items: center; }
+    .stage { position: static; flex: none; width: min(420px, 100%); }
+    .panel { width: 100%; flex: none; }
+    svg.hero-svg { height: min(40vh, 340px); }
+  }
+  @media (max-width: 480px) {
+    .tab { font-size: 14px; padding: 9px 6px; }
+    .card-head { flex-direction: column; gap: 6px; }
+  }
+  @media (pointer: coarse) {
+    .chip { min-height: 44px; padding: 8px 14px; font-size: 14px; }
+    .speak { min-height: 40px; padding: 8px 14px; font-size: 13px; }
+    .tools button { min-height: 44px; padding: 0 8px; }
+    .btn { min-height: 50px; }
+  }
+  /* SVG cloud filters are costly to repaint while scrolling on phones: keep the clouds, stop the drift */
+  @media (max-width: 960px), (pointer: coarse) {
+    .sky .drift-a, .sky .drift-b { animation: none; }
+  }
+  @media (max-width: 480px) {
+    .page { padding-top: max(16px, env(safe-area-inset-top)); }
+    svg.hero-svg { height: min(26svh, 210px); }
+    .id-card h1 { font-size: 20px; }
+    .bubble { font-size: 15px; }
+    .panel { padding: 14px 14px 18px; border-radius: 16px; }
+    .tabs { margin: 0 -14px 14px; padding: 0 14px; }
+    .card ul { padding-left: 18px; }
+  }
+  /* phones held sideways: very little height */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .page { padding-top: max(10px, env(safe-area-inset-top)); }
+    svg.hero-svg { height: 170px; }
+    .bubble { max-height: 130px; }
+  }
+  /* phone held sideways: Socrates beside the panel instead of above it */
+  @media (max-height: 500px) and (orientation: landscape) and (min-width: 640px) {
+    .scene { flex-direction: row; align-items: flex-start; gap: 16px; }
+    .stage { flex: 0 0 300px; width: 300px; }
+    .panel { flex: 1 1 auto; width: auto; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body data-mood="idle" data-talking="false">
+<svg class="sky" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <!-- noise-displaced, blurred blobs read as fluffy cumulus clouds -->
+      <filter id="puff" x="-30%" y="-30%" width="160%" height="160%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="5" seed="7" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="90" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+        <feGaussianBlur in="shape" stdDeviation="5"/>
+      </filter>
+      <filter id="puff-shade" x="-30%" y="-30%" width="160%" height="160%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="5" seed="7" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="90" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+        <feGaussianBlur in="shape" stdDeviation="14"/>
+      </filter>
+      <filter id="haze"><feGaussianBlur stdDeviation="30"/></filter>
+      <g id="cumulus">
+        <ellipse cx="0" cy="40" rx="230" ry="70"/>
+        <circle cx="-120" cy="10" r="85"/>
+        <circle cx="-20" cy="-40" r="115"/>
+        <circle cx="100" cy="-10" r="95"/>
+        <circle cx="180" cy="30" r="65"/>
+      </g>
+    </defs>
+    <!-- far, hazy clouds near the horizon -->
+    <g class="drift-b" fill="#ffffff" opacity=".55" filter="url(#haze)">
+      <ellipse cx="300" cy="880" rx="420" ry="70"/>
+      <ellipse cx="1250" cy="900" rx="480" ry="80"/>
+    </g>
+    <!-- big cloud, upper right -->
+    <g class="drift-a">
+      <use href="#cumulus" transform="translate(1290 210) scale(1.25)" fill="#9fb9d6" opacity=".55" filter="url(#puff-shade)" y="28"/>
+      <use href="#cumulus" transform="translate(1290 210) scale(1.25)" fill="#d6e3f0" filter="url(#puff)"/>
+      <use href="#cumulus" transform="translate(1290 210) scale(1.25)" fill="#ffffff" filter="url(#puff)" y="-22" opacity=".95"/>
+    </g>
+    <!-- cloud, lower left -->
+    <g class="drift-b">
+      <use href="#cumulus" transform="translate(260 700) scale(1.05)" fill="#9fb9d6" opacity=".5" filter="url(#puff-shade)" y="26"/>
+      <use href="#cumulus" transform="translate(260 700) scale(1.05)" fill="#d6e3f0" filter="url(#puff)"/>
+      <use href="#cumulus" transform="translate(260 700) scale(1.05)" fill="#ffffff" filter="url(#puff)" y="-22" opacity=".95"/>
+    </g>
+    <!-- small distant clouds -->
+    <g class="drift-a" opacity=".85">
+      <use href="#cumulus" transform="translate(220 170) scale(.55)" fill="#ffffff" filter="url(#puff)"/>
+      <use href="#cumulus" transform="translate(1420 640) scale(.6)" fill="#ffffff" filter="url(#puff)"/>
+    </g>
+  </svg>
+<a class="skip" href="#background">Skip to Gilberto's experience and projects</a>
+<div class="page">
+
+  <main class="scene" id="main">
+    <section class="stage" aria-labelledby="ask-heading">
+      <header class="id-card" id="id-card">
+        <h1>Gilberto Castañeda</h1>
+        <p class="role">Senior Software QA Engineer · 14+ years in mobile, web and API testing</p>
+        <p class="facts">Grimsby, Ontario, Canada · Open to remote work · Authorized to work in Canada</p>
+        <div class="id-links">
+          <a id="linkedin-link" href="https://www.linkedin.com/in/gcastaned">LinkedIn</a>
+          <a class="alt" id="results-link" href="results.html">Test results</a>
+        </div>
+      </header>
+      <h2 class="sr-only" id="ask-heading">Ask Socrates about Gilberto</h2>
+      <div class="bubble-wrap">
+        <div class="bubble" id="bubble" role="region" aria-label="Socrates' answer" aria-live="polite" tabindex="0"><span class="q">Ask Socrates</span>What do you want to know about Gilberto?</div>
+        <div class="next" id="next" hidden>
+          <p>Try one of these</p>
+          <div class="chips" id="next-chips" role="group" aria-label="Next steps"></div>
+        </div>
+      </div>
+<svg class="hero-svg" viewBox="0 0 300 560" role="img" aria-label="Socrates, an animated philosopher on a cloud">
+      <defs>
+        <radialGradient id="auraGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" class="aura-stop" stop-opacity=".95"/>
+          <stop offset="55%" class="aura-stop" stop-opacity=".4"/>
+          <stop offset="100%" class="aura-stop" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <ellipse class="aura" cx="150" cy="280" rx="150" ry="270" fill="url(#auraGrad)"/>
+      
+
+      <g class="char">
+        <!-- legs: baggy red gi pants with light blue ankle wraps -->
+        <path class="ink" fill="var(--gi)" d="M104 334 L196 334 Q214 400 216 470 L166 474 L154 384 L146 384 L134 474 L84 470 Q86 400 104 334 Z"/>
+        <path fill="var(--gi-shade)" d="M108 350 Q96 410 94 466 L110 468 Q108 410 120 352 Z M192 350 Q204 410 206 466 L190 468 Q192 410 180 352 Z"/>
+        <path class="line" d="M150 340 L150 384" opacity=".6"/>
+        <path class="ink" fill="var(--wrap)" d="M86 462 L134 466 L134 484 L84 482 Z"/>
+        <path class="ink" fill="var(--wrap)" d="M166 466 L214 462 L216 482 L166 484 Z"/>
+        <!-- boots -->
+        <path class="ink" fill="var(--boot)" d="M84 482 L134 484 L136 512 Q108 520 72 514 Q72 496 84 482 Z"/>
+        <path class="ink" fill="var(--boot)" d="M166 484 L216 482 Q228 496 228 514 Q192 520 164 512 Z"/>
+        <path class="line" d="M84 500 L132 502 M168 502 L216 500" stroke="var(--wrap)" opacity=".8"/>
+
+        <!-- torso: red gi top, light blue undershirt, broad shoulders -->
+        <path class="ink" fill="var(--gi)" d="M62 226 Q72 198 126 194 L150 252 L174 194 Q228 198 238 226 L196 336 L104 336 Z"/>
+        <path fill="var(--gi-shade)" d="M70 230 Q96 290 106 334 L120 334 Q106 280 92 222 Z M230 230 Q204 290 194 334 L180 334 Q194 280 208 222 Z"/>
+        <path class="ink" fill="var(--skin)" d="M122 196 L150 292 L178 196 Q150 206 122 196 Z"/>
+        <path fill="var(--skin-shade)" d="M128 236 Q140 254 150 250 L150 262 Q138 262 132 250 Z M172 236 Q160 254 150 250 L150 262 Q162 262 168 250 Z"/>
+        <path class="line" d="M126 234 Q140 254 150 248 Q160 254 174 234"/>
+        <path class="line" d="M150 252 L150 286 M142 266 L158 266 M144 278 L156 278" opacity=".55"/>
+        <path class="line" d="M136 214 Q143 224 150 222 Q157 224 164 214" opacity=".7"/>
+        <path class="ink" fill="var(--gi-shade)" d="M114 196 L122 194 L156 290 L150 298 Z"/>
+        <path class="ink" fill="var(--gi-shade)" d="M186 196 L178 194 L144 290 L150 298 Z"/>
+        <!-- belt -->
+        <path class="ink" fill="var(--belt)" d="M100 322 L200 322 L200 340 L100 340 Z"/>
+        <path class="ink" fill="var(--belt)" d="M144 336 L130 372 L140 374 L150 342 Z M156 336 L170 372 L160 374 L150 342 Z"/>
+        <rect class="ink" x="142" y="320" width="16" height="22" rx="4" fill="var(--belt)"/>
+
+        <!-- left arm, fist at side -->
+        <g transform="translate(-14 4) scale(1.06)" style="transform-box: view-box">
+        <path class="ink" fill="var(--gi)" d="M84 208 Q50 218 46 268 L90 276 Q94 242 104 222 Z"/>
+        <path class="ink" fill="var(--skin)" d="M50 262 Q38 300 58 328 L94 326 Q100 294 92 268 Z"/>
+        <path class="line" d="M62 282 Q58 300 66 316" opacity=".6"/>
+        <path class="ink" fill="var(--wrap)" d="M56 318 L96 316 L97 334 L58 336 Z"/>
+        <circle class="ink" cx="77" cy="352" r="19" fill="var(--skin)"/>
+        <path class="line" d="M66 349 L88 349 M66 357 L88 357" opacity=".6"/>
+
+        </g>
+
+        <!-- right arm, raises a fist when happy -->
+        <g class="arm-r">
+          <g transform="translate(-4 4) scale(1.06)">
+          <path class="ink" fill="var(--gi)" d="M216 208 Q250 218 254 268 L210 276 Q206 242 196 222 Z"/>
+          <path class="ink" fill="var(--skin)" d="M250 262 Q262 300 242 328 L206 326 Q200 294 208 268 Z"/>
+          <path class="line" d="M238 282 Q242 300 234 316" opacity=".6"/>
+          <path class="ink" fill="var(--wrap)" d="M244 318 L204 316 L203 334 L242 336 Z"/>
+          <circle class="ink" cx="223" cy="352" r="19" fill="var(--skin)"/>
+          <path class="line" d="M212 349 L234 349 M212 357 L234 357" opacity=".6"/>
+          </g>
+        </g>
+
+        <!-- thick neck -->
+        <path class="ink" fill="var(--skin)" d="M134 168 L128 204 Q150 216 172 204 L166 168 Z"/>
+        <path fill="var(--skin-shade)" d="M134 174 Q150 190 166 174 L167 186 Q150 200 133 186 Z"/>
+        <path class="line" d="M140 190 L144 206 M160 190 L156 206"/>
+
+
+        <!-- flying cloud -->
+        <g class="cloud">
+          <g fill="var(--ink)" stroke="var(--ink)" stroke-width="6">
+          <circle cx="70" cy="502" r="30"/>
+          <circle cx="112" cy="486" r="36"/>
+          <circle cx="162" cy="482" r="40"/>
+          <circle cx="212" cy="494" r="34"/>
+          <circle cx="244" cy="512" r="24"/>
+          <circle cx="150" cy="516" r="36"/>
+          <circle cx="96" cy="520" r="26"/>
+          <circle cx="200" cy="522" r="28"/>
+          <circle cx="48" cy="520" r="20"/>
+          </g>
+          <g fill="#ffffff">
+          <circle cx="70" cy="502" r="30"/>
+          <circle cx="112" cy="486" r="36"/>
+          <circle cx="162" cy="482" r="40"/>
+          <circle cx="212" cy="494" r="34"/>
+          <circle cx="244" cy="512" r="24"/>
+          <circle cx="150" cy="516" r="36"/>
+          <circle cx="96" cy="520" r="26"/>
+          <circle cx="200" cy="522" r="28"/>
+          <circle cx="48" cy="520" r="20"/>
+          </g>
+          <path d="M60 530 Q150 548 238 530 Q200 540 150 540 Q100 540 60 530 Z" fill="#d6ecff"/>
+          <path d="M98 478 Q112 466 128 470 M150 470 Q164 458 182 464" stroke="#d6ecff" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </g>
+
+        <!-- head (scaled to fit the full body) -->
+        <g transform="translate(30 2) scale(.8)">
+          <!-- Socrates: bald dome, white curls and beard, bulging eyes, snub nose -->
+          <g class="socrates-head">
+            <path class="ink" fill="var(--sage)" d="M104 112 Q84 116 86 138 Q76 152 88 164 Q80 180 96 188 L108 186 L106 112 Z"/>
+            <path class="ink" fill="var(--sage)" d="M196 112 Q216 116 214 138 Q224 152 212 164 Q220 180 204 188 L192 186 L194 112 Z"/>
+            <path class="ink" fill="var(--skin)" d="M102 150 Q86 150 90 170 Q94 186 106 184 Z"/>
+            <path class="ink" fill="var(--skin)" d="M198 150 Q214 150 210 170 Q206 186 194 184 Z"/>
+            <path class="ink" fill="var(--skin)" d="M102 140 Q98 72 150 68 Q202 72 198 140 Q202 186 180 208 L166 220 Q150 228 134 220 L120 208 Q98 186 102 140 Z"/>
+            <ellipse cx="130" cy="92" rx="15" ry="7" fill="#fff" opacity=".35" transform="rotate(-22 130 92)"/>
+            <path class="line" d="M124 112 Q150 103 176 112 M131 123 Q150 116 169 123" opacity=".45"/>
+            <path fill="var(--skin-shade)" d="M106 168 Q112 200 130 214 Q118 196 116 170 Z M194 168 Q188 200 170 214 Q182 196 184 170 Z"/>
+
+            <g class="brows">
+              <path class="ink" fill="var(--sage)" d="M108 148 Q122 132 144 143 L141 151 Q126 144 111 155 Z"/>
+              <path class="ink" fill="var(--sage)" d="M192 148 Q178 132 156 143 L159 151 Q174 144 189 155 Z"/>
+            </g>
+            <g class="eyes">
+              <circle class="ink" cx="128" cy="164" r="10" fill="#fff"/>
+              <circle class="ink" cx="172" cy="164" r="10" fill="#fff"/>
+              <circle cx="130" cy="165" r="5" fill="#4a2c1a"/>
+              <circle cx="170" cy="165" r="5" fill="#4a2c1a"/>
+              <circle cx="131.5" cy="163" r="1.6" fill="#fff"/>
+              <circle cx="171.5" cy="163" r="1.6" fill="#fff"/>
+            </g>
+            <g class="eyes-happy">
+              <path class="ink" fill="none" stroke-width="4" d="M118 168 Q128 156 138 168"/>
+              <path class="ink" fill="none" stroke-width="4" d="M162 168 Q172 156 182 168"/>
+            </g>
+
+            <path class="ink" fill="var(--sage)" d="M104 178 Q100 226 118 252 Q126 270 140 274 Q150 284 160 274 Q174 270 182 252 Q200 226 196 178
+              Q188 204 168 200 Q158 196 150 197 Q142 196 132 200 Q112 204 104 178 Z"/>
+            <path class="line" style="stroke: var(--sage-shade)" stroke-width="3"
+              d="M122 222 q7 8 0 16 M150 234 q7 8 0 16 M178 222 q-7 8 0 16 M134 252 q5 6 0 12 M166 252 q-5 6 0 12"/>
+            <g class="mouth-smile">
+              <path class="ink" fill="#7a2e2e" stroke-width="2" d="M139 206 Q150 213 161 206 Q157 216 150 216 Q143 216 139 206 Z"/>
+            </g>
+            <g class="mouth-talk">
+              <ellipse class="ink" cx="150" cy="210" rx="9" ry="7" fill="#5a1f24" stroke-width="2"/>
+            </g>
+            <path class="ink" fill="var(--sage)" d="M124 198 Q138 186 150 193 Q162 186 176 198 Q164 205 150 200 Q136 205 124 198 Z"/>
+            <path class="ink" fill="var(--skin)" stroke-width="2.5" d="M144 166 Q137 182 140 188 Q150 195 160 188 Q163 182 156 166"/>
+            <circle cx="145" cy="187" r="1.8" fill="var(--ink)"/>
+            <circle cx="155" cy="187" r="1.8" fill="var(--ink)"/>
+          </g>
+
+                  </g>
+      </g>
+
+      <g class="sparks" fill="#fff" stroke="var(--ink)" stroke-width="1.5">
+        <path d="M40 120 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 Z"/>
+        <path d="M258 220 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 Z"/>
+        <path d="M36 300 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 Z"/>
+        <path d="M256 80 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 Z"/>
+      </g>
+    </svg>
+      <div class="status" id="status" aria-hidden="true"></div>
+      <label class="ask-label" for="question">Your question about Gilberto</label>
+      <form class="ask" id="ask" autocomplete="off" aria-label="Ask Socrates">
+        <input id="question" type="search" enterkeyhint="send" autocapitalize="sentences" autocorrect="on" spellcheck="false" maxlength="200" placeholder="Type a question…">
+        <button class="btn round" id="mic" type="button" aria-pressed="false" aria-label="Ask with your voice" title="Ask with your voice" hidden><span aria-hidden="true">🎙️</span></button>
+        <button class="btn" type="submit">Ask</button>
+      </form>
+      <h3 class="sr-only" id="chips-heading">Suggested questions</h3>
+      <div class="chips" id="chips" role="group" aria-labelledby="chips-heading"></div>
+      <div class="tools" role="group" aria-label="Voice and animation controls">
+        <button type="button" id="muteBtn"></button>
+        <button type="button" id="stopBtn"><span aria-hidden="true">⏹ </span>Stop talking</button>
+        <button type="button" id="motionBtn"></button>
+      </div>
+    </section>
+
+    <section class="panel" id="background" tabindex="-1" aria-labelledby="bg-heading">
+      <h2 class="sr-only" id="bg-heading">Gilberto's background</h2>
+      <div class="tabs" role="tablist" aria-label="Gilberto's background">
+        <button class="tab" role="tab" id="tab-exp" aria-controls="pane-exp" aria-selected="true">Professional Experience</button>
+        <button class="tab" role="tab" id="tab-ai" aria-controls="pane-ai" aria-selected="false" tabindex="-1">Projects</button>
+      </div>
+      <section id="pane-exp" role="tabpanel" aria-labelledby="tab-exp" tabindex="0">
+        <h2 class="sr-only">Professional Experience</h2>
+        <p class="intro" id="exp-intro">14+ years analyzing, identifying, tracking and preventing bugs in mobile, web and API products, in Agile, incremental and waterfall teams.</p>
+        <div id="expList"></div>
+        <div class="skills" id="skills">
+          <h3>Tools &amp; skills</h3>
+          <p><strong>Testing:</strong> Jira, Android Studio, Xcode simulators, LambdaTest, Postman, Charles, Proxyman, Swagger, SoapUI, TestRail, Testmo, Microsoft Test Manager, HP ALM, Gherkin</p>
+          <p><strong>Automation &amp; AI:</strong> Appium (Python), testRigor, Claude Code, Gemini, NotebookLM, ChatGPT, Grok</p>
+          <p><strong>Languages &amp; data:</strong> Python, VBScript, MySQL, Oracle, SQL Server, SQLite · GitHub, TestFlight</p>
+          <p><strong>Education:</strong> Bachelor of Computer Science, Tecnológico de Monterrey (ITESM), 2006, evaluated by WES</p>
+        </div>
+      </section>
+      <section id="pane-ai" role="tabpanel" aria-labelledby="tab-ai" tabindex="0" hidden>
+        <h2 class="sr-only">Projects</h2>
+        <p class="intro" id="ai-intro">Side projects Gilberto built with Claude Code as his AI pair programmer, each with a QA angle: real tests, real reports, and safe defaults.</p>
+        <div id="aiList"></div>
+      </section>
+    </section>
+  </main>
+</div>
+<footer>
+  <p>Socrates answers only from Gilberto's résumé and projects; he won't make anything up. <a href="results.html">See how this page is tested</a>.</p>
+  <p><strong>Accessibility:</strong> this page aims to meet WCAG 2.1 level AA. If anything is hard to use, or you'd like this information in another format, please contact Gilberto on LinkedIn.</p>
+  <p><strong>Privacy:</strong> nothing you type or say is stored or sent to Gilberto. If you use the microphone, your browser's own speech service turns it into text.</p>
+  <p>Made with <a href="../">Kenji, Gilberto's voice assistant</a>.</p>
+</footer>
+
+<script>
+  // ---------- wiki data: generated by tools/socrates-wiki.mjs from the GitHub wiki. Edit the wiki, not this block ----------
+  const INTRO = {
+    "exp": "14+ years analyzing, identifying, tracking and preventing bugs in mobile, web and API products, in Agile, incremental and waterfall teams.",
+    "ai": "Side projects Gilberto built with Claude Code as his AI pair programmer, each with a QA angle: real tests, real reports, and safe defaults."
+  };
+
+  const SKILLS = [
+    [
+      "Testing",
+      "Jira, Android Studio, Xcode simulators, LambdaTest, Postman, Charles, Proxyman, Swagger, SoapUI, TestRail, Testmo, Microsoft Test Manager, HP ALM, Gherkin"
+    ],
+    [
+      "Automation & AI",
+      "Appium (Python), testRigor, Claude Code, Gemini, NotebookLM, ChatGPT, Grok"
+    ],
+    [
+      "Languages & data",
+      "Python, VBScript, MySQL, Oracle, SQL Server, SQLite · GitHub, TestFlight"
+    ],
+    [
+      "Education",
+      "Bachelor of Computer Science, Tecnológico de Monterrey (ITESM), 2006, evaluated by WES"
+    ]
+  ];
+
+  const EXPERIENCE = [
+    {
+      "id": "eventbase-senior",
+      "keys": [
+        "eventbase",
+        "event",
+        "events",
+        "senior",
+        "current",
+        "recent",
+        "latest",
+        "last job"
+      ],
+      "org": "Eventbase",
+      "role": "Senior QA Engineer",
+      "meta": "Vancouver · Sep 2024 – May 2026",
+      "summary": "Coordinated QA resources across events with product owners, developers and event producers, and tested native Android and iOS apps on real devices and emulators.",
+      "points": [
+        "Android and iOS testing with physical devices, Android Studio emulators, Xcode simulators and LambdaTest",
+        "Troubleshooting with SSL proxying in Charles and API calls in Postman, plus screen and video capture",
+        "Updated Appium automation scripts in Python",
+        "Created and updated smoke scenarios with the testRigor AI tool"
+      ]
+    },
+    {
+      "id": "bethinklabs",
+      "keys": [
+        "bethinklabs",
+        "bethink",
+        "vehicle",
+        "vehicles",
+        "car",
+        "telematics",
+        "connected"
+      ],
+      "org": "BeThinkLabs",
+      "role": "Senior QA Engineer",
+      "meta": "California · Mar 2024 – Aug 2024",
+      "summary": "Tested connected-vehicle apps for the US, Canada and Mexico, working with onshore and offshore teams.",
+      "points": [
+        "Mocked API requests with Proxyman and troubleshot API calls with Postman",
+        "Reviewed crash analytics with AWS Log Insights",
+        "Functional testing of telematics commands, financial information and service scheduling",
+        "Validated UX against Figma mocks, plus localization and accessibility",
+        "Created and maintained functional, regression and smoke test cases in Testmo"
+      ]
+    },
+    {
+      "id": "eventbase",
+      "keys": [
+        "eventbase",
+        "coordinate",
+        "coordinated",
+        "testrail",
+        "app store",
+        "play store"
+      ],
+      "org": "Eventbase",
+      "role": "QA Engineer",
+      "meta": "Vancouver · Mar 2022 – Feb 2024",
+      "summary": "Coordinated six or more QA delivery engineers with a human-centered approach, and helped keep Play Store and App Store releases on track.",
+      "points": [
+        "Managed QA resource efforts and solved project bottlenecks",
+        "Created, updated and peer-reviewed test cases in TestRail",
+        "Agreed release checks with product owners, developers and designers"
+      ]
+    },
+    {
+      "id": "soti",
+      "keys": [
+        "soti",
+        "mdm",
+        "device management",
+        "remote control",
+        "mobicontrol",
+        "swagger"
+      ],
+      "org": "SOTI",
+      "role": "Software QA Specialist",
+      "meta": "Mississauga · Jan 2018 – Mar 2022",
+      "summary": "Tested remote-control features of SOTI's mobile device management solutions across Android, iOS, Windows and Linux.",
+      "points": [
+        "Designed test scenarios and test cases for new remote-control features",
+        "Verified device and vehicle data in real time through Swagger APIs",
+        "Set up test environments over VNC and RDP with MobiControl agents",
+        "Reviewed acceptance criteria and BDDs in backlog grooming, and troubleshot customer issues with developers to find root causes"
+      ]
+    },
+    {
+      "id": "scotiabank",
+      "keys": [
+        "scotiabank",
+        "scotia",
+        "bank",
+        "banking",
+        "gherkin",
+        "bdd"
+      ],
+      "org": "Scotiabank",
+      "role": "Software QA Agile Tester",
+      "meta": "Toronto · Sep 2016 – Dec 2017",
+      "summary": "Tested web and mobile digital banking for Mexico, Chile and the Caribbean.",
+      "points": [
+        "Wrote Gherkin scenarios as a common language between business and development",
+        "Found device-specific bugs related to battery, rotation and network disruption",
+        "Coordinated troubleshooting with stakeholders and vendors to integrate token and REST services",
+        "Trained consultants on digital sales business flows"
+      ]
+    },
+    {
+      "id": "urbanscience",
+      "keys": [
+        "urban science",
+        "urban",
+        "automotive",
+        "nissan",
+        "toyota",
+        "leader",
+        "lead"
+      ],
+      "org": "Urban Science",
+      "role": "QA Leader (2014–2016) · QA Specialist (2012–2014)",
+      "meta": "Mexico City · Jan 2012 – Jul 2016",
+      "summary": "Led QA teams on global automotive projects for brands such as Nissan, Toyota, Mazda, Kia and Volkswagen.",
+      "points": [
+        "Testing strategies that brought a 20% increase in bugs found in early phases of the SDLC",
+        "Mentored the team in risk-based testing, helping find 10% more bugs",
+        "Managed performance, automation and manual testing in Pacific Region projects",
+        "Helped cut training time for new analysts from one month to two weeks"
+      ]
+    },
+    {
+      "id": "earlier",
+      "keys": [
+        "american express",
+        "amex",
+        "jp morgan",
+        "jpmorgan",
+        "telefonica",
+        "movistar",
+        "sony",
+        "pernod",
+        "earlier",
+        "early career",
+        "before"
+      ],
+      "org": "Earlier career",
+      "role": "QA, UAT, product and business analysis",
+      "meta": "Mexico City · 2006 – 2011",
+      "summary": "QA Leader for UAT at American Express, QA Analyst at JP Morgan, Product Manager at Telefónica Movistar, and systems analysis at Sony Latin America and Pernod Ricard.",
+      "points": [
+        "American Express: coordinated UAT and bug triage for a legacy card migration, with test plans for 10 of 25 products",
+        "JP Morgan: functional, integration, regression, IVR and web-services testing of B2B and B2C billing apps",
+        "Telefónica Movistar: value-added mobile services with Huawei teams, increasing subscriptions by 5%",
+        "Sony Latin America: functional specifications, UML models and user training for a regional workshop system"
+      ]
+    }
+  ];
+
+  const PROJECTS = [
+    {
+      "id": "kenji",
+      "keys": [
+        "kenji",
+        "voice",
+        "assistant",
+        "whisper"
+      ],
+      "org": "Kenji · voice assistant for macOS",
+      "meta": "Python · Whisper · Claude Code",
+      "summary": "A voice assistant that turns what you say into terminal commands. Speech is transcribed on the Mac with Whisper, and nothing runs until you say yes. It also has a Socratic mode, which inspired this page, and a Smart research mode.",
+      "points": [
+        "Every command is shown first; risky ones (delete, install, sudo, network) are flagged",
+        "Local window server bound to 127.0.0.1 and protected by a per-session token",
+        "Install tested from a clean clone: dependencies, Whisper model download and transcription"
+      ],
+      "tags": [
+        "Python",
+        "Whisper",
+        "Claude Code",
+        "Safety by design"
+      ]
+    },
+    {
+      "id": "pomodoro",
+      "keys": [
+        "pomodoro",
+        "maestro",
+        "ui test",
+        "ui tests",
+        "timer",
+        "rotation",
+        "rotate"
+      ],
+      "org": "Pomodoro + Maestro",
+      "meta": "Android · Maestro UI testing",
+      "summary": "A small Android Pomodoro timer tested with eight Maestro UI flows on a Pixel 9 emulator, with JUnit reports. Six pass. The other two caught real bugs: the timer resets when the phone is rotated, and when Android closes the app in the background.",
+      "points": [
+        "Flows: custom length completes, pause and resume, reset, invalid lengths rejected, rotating the phone, leaving and coming back, locking the screen, and Android closing the app",
+        "A reusable subflow and stable element IDs for every control",
+        "Built with only the Android SDK build tools, no Gradle needed"
+      ],
+      "tags": [
+        "Android",
+        "Maestro",
+        "adb",
+        "JUnit report"
+      ]
+    },
+    {
+      "id": "pathlight",
+      "keys": [
+        "pathlight",
+        "family safety",
+        "safety",
+        "playwright",
+        "jest",
+        "load",
+        "performance",
+        "firestore",
+        "node",
+        "e2e"
+      ],
+      "org": "Pathlight · family-safety prototype",
+      "meta": "Node.js · Firestore · full test pyramid",
+      "summary": "A family-safety MVP with a parent dashboard and a smartwatch simulator, tested at three levels: Jest and Supertest API tests, Playwright end-to-end tests, and an autocannon load test with a Firestore quota guard.",
+      "points": [
+        "All tests run against the Firestore emulator, so testing costs nothing",
+        "End-to-end checks for login, messaging, SOS and safe-zone alerts",
+        "Default-deny Firestore security rules"
+      ],
+      "tags": [
+        "Playwright",
+        "Jest",
+        "Supertest",
+        "autocannon",
+        "Firestore"
+      ]
+    }
+  ];
+
+  const TOPICS = [
+    {
+      "title": "Work authorization",
+      "keys": [
+        "authorized",
+        "authorization",
+        "authorized to work",
+        "work permit",
+        "permit",
+        "visa",
+        "sponsorship",
+        "sponsor",
+        "eligible",
+        "legally"
+      ],
+      "answer": "Gilberto is authorized to work in Canada."
+    },
+    {
+      "title": "Remote work",
+      "keys": [
+        "remote",
+        "remotely",
+        "work from home",
+        "wfh",
+        "distributed",
+        "time zone",
+        "timezone"
+      ],
+      "answer": "Gilberto is open to remote work. He is based in Grimsby, Ontario, in the Eastern time zone."
+    },
+    {
+      "title": "Relocation",
+      "keys": [
+        "relocate",
+        "relocation",
+        "relocating",
+        "move",
+        "moving"
+      ],
+      "answer": "Gilberto is not open to relocation. He is open to remote work from Grimsby, Ontario."
+    },
+    {
+      "title": "Salary, start date and on-site work",
+      "keys": [
+        "salary",
+        "pay",
+        "compensation",
+        "hourly rate",
+        "salary expectations",
+        "wage",
+        "availability",
+        "start date",
+        "notice",
+        "notice period",
+        "when can he start",
+        "hybrid",
+        "on site",
+        "onsite",
+        "in office"
+      ],
+      "answer": "A wise man speaks only of what he knows, and that is a question for Gilberto himself. Please reach him on LinkedIn."
+    },
+    {
+      "title": "Testing and QA",
+      "keys": [
+        "qa",
+        "quality",
+        "quality assurance",
+        "testing",
+        "tester",
+        "bug",
+        "bugs",
+        "test strategy",
+        "test plan",
+        "test plans"
+      ],
+      "answer": "Testing is his trade. For more than 14 years he has analyzed, tracked and prevented bugs in mobile, web and API products, written test plans, and led QA teams. He tests his own projects the same way: Test results lists each automated check and the tool that verified it."
+    },
+    {
+      "title": "Test results",
+      "keys": [
+        "test results",
+        "results",
+        "evidence",
+        "verified",
+        "passed",
+        "failed",
+        "pass rate",
+        "this page tested",
+        "tested this page",
+        "how is this page tested"
+      ],
+      "answer": "This page and his projects are checked by automated tests: Playwright for this page in Chrome and in Safari's engine, script checks for its content and voice clips, and Maestro for his Android app. Open Test results to see each check, the tool that verified it, and whether it passed."
+    },
+    {
+      "title": "Source code",
+      "keys": [
+        "source code",
+        "see his code",
+        "see the code",
+        "his code",
+        "github",
+        "repository",
+        "repo"
+      ],
+      "answer": "The code of his projects is private: he walks through it and runs the tests live in interviews. The Test results page shows what each test checked, which tool verified it, and whether it passed."
+    },
+    {
+      "title": "Greetings",
+      "keys": [
+        "hello",
+        "hi",
+        "hey",
+        "greetings",
+        "good morning",
+        "good afternoon"
+      ],
+      "answer": "Greetings, friend! I am Socrates. Ask me anything about Gilberto's experience, skills or projects, and I will tell you what I know.",
+      "weak": true
+    },
+    {
+      "title": "Who is Socrates",
+      "keys": [
+        "who are you",
+        "what are you",
+        "are you ai",
+        "are you real",
+        "is this ai",
+        "chatbot",
+        "bot"
+      ],
+      "answer": "I am Socrates, a guide to Gilberto's record. I don't use AI to answer: every reply comes from a fixed set of answers written from his résumé and projects, so I won't make anything up. What would you like to examine?"
+    },
+    {
+      "title": "About Gilberto",
+      "keys": [
+        "about",
+        "who is",
+        "summary",
+        "summarize",
+        "overview",
+        "background",
+        "tell me",
+        "introduce",
+        "profile"
+      ],
+      "answer": "Gilberto Castañeda is a Senior Software QA Engineer with more than 14 years of experience testing mobile, web and API products, at companies such as Eventbase, BeThinkLabs, SOTI, Scotiabank and Urban Science. He holds the CSQE, ISTQB and ICAgile testing certifications, and he builds AI-assisted tools with Claude Code. Shall we examine his experience, or his projects?",
+      "weak": true
+    },
+    {
+      "title": "Experience overview",
+      "keys": [
+        "experience",
+        "years",
+        "career",
+        "work",
+        "worked",
+        "work history",
+        "jobs",
+        "companies",
+        "employers"
+      ],
+      "answer": "More than 14 years in software QA. Most recently he was a Senior QA Engineer at Eventbase until May 2026, and before that at BeThinkLabs testing connected-vehicle apps. He spent four years at SOTI testing device management, tested digital banking at Scotiabank, and led QA teams at Urban Science."
+    },
+    {
+      "title": "Mobile testing",
+      "keys": [
+        "mobile",
+        "mobile experience",
+        "android",
+        "ios",
+        "iphone",
+        "devices",
+        "device",
+        "app testing",
+        "apps"
+      ],
+      "answer": "Mobile is his home ground. At Eventbase he tested native Android and iOS apps on real devices, Android Studio emulators, Xcode simulators and LambdaTest. At SOTI he tested across Android, iOS, Windows and Linux devices, and at Scotiabank he found device-specific bugs tied to battery, rotation and network disruption."
+    },
+    {
+      "title": "API testing",
+      "keys": [
+        "api",
+        "apis",
+        "postman",
+        "rest",
+        "proxy",
+        "charles",
+        "proxyman",
+        "backend",
+        "services"
+      ],
+      "answer": "He verifies and troubleshoots APIs with Postman, Charles and Proxyman: SSL proxying at Eventbase, mocking API requests for remote vehicle features at BeThinkLabs, and checking device data through Swagger at SOTI. He has also tested web services and IVR at JP Morgan."
+    },
+    {
+      "title": "Not in his record",
+      "keys": [
+        "selenium",
+        "cypress",
+        "webdriver",
+        "webdriverio"
+      ],
+      "answer": "Selenium and Cypress aren't in his record. His automation work uses Appium, testRigor, Maestro and Playwright."
+    },
+    {
+      "title": "Automation",
+      "keys": [
+        "automation",
+        "automate",
+        "automated",
+        "appium",
+        "script",
+        "scripts",
+        "framework",
+        "testrigor"
+      ],
+      "answer": "At Eventbase he updated Appium automation scripts in Python and created smoke scenarios with the testRigor AI tool. In his own Claude Code projects he set up Maestro UI flows for an Android app, and Jest, Playwright and load tests for a Node.js prototype."
+    },
+    {
+      "title": "AI and AI projects",
+      "keys": [
+        "ai",
+        "artificial",
+        "claude",
+        "chatgpt",
+        "gemini",
+        "llm",
+        "machine learning",
+        "projects",
+        "project",
+        "side"
+      ],
+      "answer": "He uses AI as a QA multiplier: testRigor for AI-driven smoke tests at work, and Claude Code, Gemini, NotebookLM and ChatGPT day to day. With Claude Code he built Kenji, a voice assistant for macOS, plus test projects with Maestro, Playwright and Jest. Open the Projects tab to see them."
+    },
+    {
+      "title": "Leadership",
+      "keys": [
+        "leadership",
+        "led",
+        "leading",
+        "manage",
+        "managed",
+        "manager",
+        "mentor",
+        "mentored",
+        "mentoring",
+        "team",
+        "teams",
+        "coach",
+        "people"
+      ],
+      "answer": "At Urban Science he led QA teams on global automotive projects, mentored them in risk-based testing, and helped cut training time for new analysts from one month to two weeks. At Eventbase he coordinated six or more QA delivery engineers with a human-centered approach."
+    },
+    {
+      "title": "Tools",
+      "keys": [
+        "tools",
+        "tool",
+        "jira",
+        "testrail",
+        "testmo",
+        "stack",
+        "software he uses"
+      ],
+      "answer": "His toolbox: Jira, TestRail, Testmo and HP ALM for test management; Postman, Charles, Proxyman, Swagger and SoapUI for APIs; Android Studio, Xcode simulators and LambdaTest for mobile; Appium and testRigor for automation; and GitHub and TestFlight for builds."
+    },
+    {
+      "title": "Certifications",
+      "keys": [
+        "certification",
+        "certifications",
+        "certified",
+        "csqe",
+        "istqb",
+        "ctfl",
+        "icagile",
+        "asq"
+      ],
+      "answer": "He holds three: the Certified Software Quality Engineer from ASQ, the ISTQB Certified Tester Foundation Level, and the ICAgile Certified Professional in Agile Testing."
+    },
+    {
+      "title": "Education",
+      "keys": [
+        "education",
+        "degree",
+        "university",
+        "study",
+        "studied",
+        "school",
+        "bachelor"
+      ],
+      "answer": "He has a four-year Bachelor of Computer Science from Tecnológico de Monterrey in Mexico, graduated in 2006, and evaluated by WES."
+    },
+    {
+      "title": "Languages",
+      "keys": [
+        "language",
+        "languages",
+        "speak",
+        "english",
+        "spanish",
+        "portuguese",
+        "german",
+        "bilingual"
+      ],
+      "answer": "English fluent, with the Cambridge BEC Vantage certificate; Spanish native; Portuguese intermediate; and German beginner."
+    },
+    {
+      "title": "Programming and databases",
+      "keys": [
+        "programming",
+        "code",
+        "coding",
+        "python",
+        "sql",
+        "database",
+        "databases"
+      ],
+      "answer": "He works in Python and VBScript, and with MySQL, Oracle, SQL Server and SQLite databases."
+    },
+    {
+      "title": "Agile and process",
+      "keys": [
+        "agile",
+        "scrum",
+        "waterfall",
+        "process",
+        "methodology",
+        "sdlc"
+      ],
+      "answer": "He has worked in Agile, incremental and waterfall projects. He writes Gherkin scenarios, reviews acceptance criteria and BDDs in backlog grooming, and holds the ICAgile certification in Agile testing."
+    },
+    {
+      "title": "Industries",
+      "keys": [
+        "industry",
+        "industries",
+        "domain",
+        "domains",
+        "sectors",
+        "fintech",
+        "finance"
+      ],
+      "answer": "Events apps at Eventbase, connected vehicles at BeThinkLabs, mobile device management at SOTI, digital banking at Scotiabank, JP Morgan and American Express, automotive analytics at Urban Science, and telecom at Telefónica."
+    },
+    {
+      "title": "Location",
+      "keys": [
+        "where",
+        "location",
+        "located",
+        "live",
+        "based",
+        "canada",
+        "ontario"
+      ],
+      "answer": "He is based in Grimsby, Ontario, in Canada's Niagara region."
+    },
+    {
+      "title": "Contact",
+      "keys": [
+        "contact",
+        "reach",
+        "email",
+        "phone",
+        "linkedin",
+        "interview",
+        "connect"
+      ],
+      "answer": "The best way to reach Gilberto is through LinkedIn, at linkedin.com/in/gcastaned."
+    },
+    {
+      "title": "Why hire him",
+      "keys": [
+        "why hire",
+        "why should",
+        "strength",
+        "strengths",
+        "good fit",
+        "hire him",
+        "stand out",
+        "unique"
+      ],
+      "answer": "Consider the evidence: 14 years of hands-on mobile and API testing, experience leading and mentoring QA teams, three testing certifications, and a habit of designing tests from the client's point of view. He also brings AI-assisted automation. Is that not the mark of a well-rounded QA engineer?"
+    }
+  ];
+
+  const CHIPS = [
+    [
+      "About him",
+      "Tell me about Gilberto"
+    ],
+    [
+      "Remote work",
+      "Is he open to remote work?"
+    ],
+    [
+      "Work permit",
+      "Is he authorized to work in Canada?"
+    ],
+    [
+      "Mobile testing",
+      "Has he tested mobile apps?"
+    ],
+    [
+      "Test results",
+      "Show me his test results"
+    ],
+    [
+      "Projects",
+      "What projects has he built?"
+    ]
+  ];
+
+  const FALLBACK = "Hmm, that is not in Gilberto's record, and I won't guess. Try one of these questions, or reach him on LinkedIn.";
+  // ---------- end of wiki data ----------
+
+  const $ = (id) => document.getElementById(id);
+  const body = document.body;
+
+  // Socrates' answers are pre-recorded in Apple's "Jamie" voice by tools/socrates-audio.mjs, so every device
+  // (Android included, whose browser can't pick a male voice) hears the same voice. Each clip is named by a
+  // hash of the exact answer text; if a clip is missing, the browser's own voice reads the answer instead.
+  function clipName(text) {
+    let h = 0x811c9dc5;
+    for (let i = 0; i < text.length; i++) { h ^= text.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+    return "audio/" + h.toString(16).padStart(8, "0") + ".m4a";
+  }
+
+  // ---------- render the right-hand panel ----------
+  function el(tag, attrs = {}, ...children) {
+    const node = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
+    node.append(...children);
+    return node;
+  }
+  function card(item, kind) {
+    const btn = el("button", { class: "speak", type: "button", "aria-label": `Ask Socrates about ${item.role ? item.role + " at " : ""}${item.org}` },
+      el("span", { "aria-hidden": "true" }, "🔊 "), "Ask Socrates");
+    btn.addEventListener("click", () => { answer(spoken(item), `${item.role ? item.role + " at " : ""}${item.org}`); showSocrates(); });
+    const heading = el("div", {}, el("h3", {}, kind === "exp" ? item.role : item.org),
+                       el("p", { class: "meta" }, kind === "exp" ? `${item.org} · ${item.meta}` : item.meta));
+    const article = el("article", { class: "card", id: item.id },
+      el("div", { class: "card-head" }, heading, btn),
+      el("p", {}, item.summary),
+      el("ul", {}, ...item.points.map((p) => el("li", {}, p))));
+    if (item.tags) article.append(el("ul", { class: "tags", "aria-label": "Technologies" }, ...item.tags.map((t) => el("li", {}, t))));
+    if (item.link) article.append(el("p", {}, el("a", { href: item.link }, `View the ${item.org.split(" ·")[0]} code on GitHub`)));
+    return article;
+  }
+  function spoken(item) {
+    if (item.id === "earlier") return `Earlier in his career, from 2006 to 2011: ${item.summary}`;
+    return item.role ? `As ${item.role} at ${item.org}, ${item.meta.split("·").pop().trim()}: ${item.summary}` : `${item.org}. ${item.summary}`;
+  }
+  EXPERIENCE.forEach((e) => $("expList").append(card(e, "exp")));
+  PROJECTS.forEach((p) => $("aiList").append(card(p, "ai")));
+
+  document.querySelector(".skip").addEventListener("click", (e) => {
+    e.preventDefault(); $("background").focus(); $("background").scrollIntoView({ block: "start" });
+  });
+
+  // ---------- tabs ----------
+  const tabs = [$("tab-exp"), $("tab-ai")];
+  function selectTab(tab) {
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1;
+      $(t.getAttribute("aria-controls")).hidden = !on;
+    });
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => selectTab(t));
+    t.addEventListener("keydown", (e) => {
+      const moves = { ArrowRight: i + 1, ArrowLeft: i - 1 + tabs.length, Home: 0, End: tabs.length - 1 };
+      if (!(e.key in moves)) return;
+      e.preventDefault();
+      const next = tabs[moves[e.key] % tabs.length];
+      selectTab(next); next.focus();
+    });
+  });
+
+  // ---------- the answer engine: matches the question against Gilberto's record ----------
+  const normalize = (s) => " " + s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9 ]+/g, " ").replace(/\s+/g, " ") + " ";
+  function score(q, keys) {
+    return keys.reduce((n, k) => n + (q.includes(" " + normalize(k).trim() + " ") ? (k.includes(" ") ? 3 : 2) : 0), 0);
+  }
+  function findAnswer(question) {
+    const q = normalize(question);
+    let best = { score: 0 };
+    for (const t of TOPICS) { const s = score(q, t.keys) * (t.weak ? 0.3 : 1); if (s > best.score) best = { score: s, text: t.answer }; }
+    for (const e of EXPERIENCE) { const m = score(q, e.keys), s = m + 4; if (m && s > best.score) best = { score: s, text: spoken(e), card: e.id, tab: "tab-exp" }; }
+    for (const p of PROJECTS) { const m = score(q, p.keys), s = m + 4; if (m && s > best.score) best = { score: s, text: spoken(p), card: p.id, tab: "tab-ai" }; }
+    if (!best.score) return { text: FALLBACK };
+    if (!best.card && /\b(ai|projects?|side)\b/.test(q)) best.tab = "tab-ai";
+    return best;
+  }
+
+  // ---------- voice ----------
+  const synth = window.speechSynthesis;
+  let muted = false, voice = null;
+  try { muted = localStorage.getItem("socrates-muted") === "1"; } catch (e) {}
+  function pickVoice() {
+    // A warm, friendly, natural-sounding male voice. High-quality neural voices win:
+    // Edge/Windows "Natural", Apple "Enhanced"/"Premium", then Google's Android voices.
+    const voices = synth ? synth.getVoices().filter((v) => /^en/i.test(v.lang)) : [];
+    // Socrates' own voice: Apple's "Jamie" (Premium, then Enhanced, then standard) on any Apple device that has it.
+    const jamie = voices.filter((v) => /^Jamie\b/i.test(v.name))
+      .sort((a, b) => (/Premium/i.test(b.name) - /Premium/i.test(a.name)) || (/Enhanced/i.test(b.name) - /Enhanced/i.test(a.name)))[0];
+    if (jamie) { voice = jamie; return; }
+    // Everywhere else (Windows, Android, devices without Jamie): the friendliest natural male voice available.
+    const friendly = ["Microsoft Andrew", "Microsoft Brian", "Microsoft Guy", "Microsoft Christopher", "Microsoft Eric",
+                      "Evan", "Nathan", "Tom", "Aaron", "Alex", "en-us-x-iom", "en-us-x-tpd", "en-us-x-iol", "en-gb-x-rjs",
+                      "Daniel", "Google UK English Male", "Arthur", "Lee"];
+    const robotic = /Reed|Ralph|Fred|Albert|Zarvox|Trinoids|Whisper|Bad News|Good News|Bahh|Bells|Boing|Bubbles|Cellos|Jester|Organ|Superstar|Wobble|Junior|Grandpa|Rocko|Eddy/i;
+    let best = null, bestScore = -1;
+    for (const v of voices) {
+      const rank = friendly.findIndex((n) => v.name.includes(n));
+      if (rank < 0 || robotic.test(v.name)) continue;
+      const score = (/Natural|Neural|Premium|Enhanced|Online/i.test(v.name) ? 1000 : 0)
+                  + (/en[-_]US/i.test(v.lang) ? 100 : 0) + (friendly.length - rank);
+      if (score > bestScore) { best = v; bestScore = score; }
+    }
+    voice = best || voices.find((v) => !robotic.test(v.name)) || null;
+  }
+  if (synth) { pickVoice(); synth.addEventListener?.("voiceschanged", pickVoice); }
+  function setMood(mood, status = "") { body.dataset.mood = mood; $("status").textContent = status; }
+  const player = new Audio();
+  player.preload = "auto";
+  // Phones only let a page play sound after the visitor has tapped something: unlock both the
+  // recordings and the backup voice on the first tap, so answers to spoken questions can play too.
+  let unlocked = false;
+  function unlockSpeech() {
+    if (unlocked) return;
+    unlocked = true;
+    player.muted = true; player.src = clipName(FALLBACK);
+    player.play().then(() => { player.pause(); player.muted = false; }).catch(() => { player.muted = false; });
+    if (synth) { const u = new SpeechSynthesisUtterance(" "); u.volume = 0; synth.speak(u); }
+  }
+  document.addEventListener("pointerdown", unlockSpeech, { once: true, capture: true });
+  document.addEventListener("keydown", unlockSpeech, { once: true, capture: true });
+
+  let speechRun = 0;
+  function speak(text) {
+    if (muted) { setMood("idle"); return; }
+    stopSound();
+    const run = ++speechRun;
+    const mine = () => run === speechRun;
+    player.muted = false;
+    player.src = clipName(text);
+    player.onplaying = () => { if (mine()) { body.dataset.talking = "true"; setMood("talking", "Speaking…"); } };
+    player.onended = () => { if (mine()) { body.dataset.talking = "false"; setMood("idle"); } };
+    player.onerror = () => { if (mine()) synthSpeak(text, run); };
+    player.play().catch((e) => { if (mine() && e.name !== "AbortError") synthSpeak(text, run); });
+  }
+  function stopSound() { player.pause(); if (synth) synth.cancel(); }
+
+  // Backup: the browser's own voice, used only when a recording can't be played.
+  function synthSpeak(text, run) {
+    if (!synth) { setMood("idle"); return; }
+    synth.cancel();
+    // Speak sentence by sentence: Android Chrome cuts off long utterances, and it lets Stop act at once.
+    const parts = text.replace(/linkedin\.com\/in\/gcastaned/, "LinkedIn, slash in, slash g castaned")
+                      .match(/[^.!?]+[.!?]*/g).map((t) => t.trim()).filter(Boolean);
+    const done = () => { if (run === speechRun) { body.dataset.talking = "false"; setMood("idle"); } };
+    // Friendly and natural, with a short breath between sentences.
+    const say = (i) => {
+      if (run !== speechRun) return;
+      if (i >= parts.length) return done();
+      const u = new SpeechSynthesisUtterance(parts[i]);
+      if (voice) { u.voice = voice; u.lang = voice.lang; } else u.lang = "en-US";
+      u.rate = 0.97;   // a natural, relaxed pace
+      u.pitch = 1;     // the voice's own pitch: lowering it is what made it sound robotic
+      u.onstart = () => { if (run === speechRun) { body.dataset.talking = "true"; setMood("talking", "Speaking…"); } };
+      u.onend = () => {
+        if (run !== speechRun) return;
+        body.dataset.talking = "false";                       // close the mouth during the pause
+        setTimeout(() => say(i + 1), i + 1 < parts.length ? 250 : 0);
+      };
+      u.onerror = done;
+      synth.speak(u);
+    };
+    say(0);
+    // Safari sometimes pauses speech when the tab regains focus; nudge it along.
+    if (synth.paused) synth.resume();
+  }
+  function stopTalking() { speechRun++; stopSound(); body.dataset.talking = "false"; setMood("idle"); }
+  function updateMute() {
+    $("muteBtn").replaceChildren(el("span", { "aria-hidden": "true" }, muted ? "🔇 " : "🔊 "), muted ? "Turn voice on" : "Turn voice off");
+  }
+  updateMute();
+  $("muteBtn").addEventListener("click", () => {
+    muted = !muted; updateMute(); if (muted) stopTalking();
+    try { localStorage.setItem("socrates-muted", muted ? "1" : "0"); } catch (e) {}
+  });
+  $("stopBtn").addEventListener("click", stopTalking);
+
+  let paused = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  try { const saved = localStorage.getItem("socrates-motion"); if (saved) paused = saved === "paused"; } catch (e) {}
+  function updateMotion() {
+    body.dataset.motion = paused ? "paused" : "on";
+    $("motionBtn").replaceChildren(el("span", { "aria-hidden": "true" }, paused ? "▶ " : "⏸ "), paused ? "Play animations" : "Pause animations");
+  }
+  updateMotion();
+  $("motionBtn").addEventListener("click", () => {
+    paused = !paused; updateMotion();
+    try { localStorage.setItem("socrates-motion", paused ? "paused" : "on"); } catch (e) {}
+  });
+
+  function showBubble(label, text) {
+    const b = $("bubble");
+    b.replaceChildren(el("span", { class: "q" }, label), text);
+    b.scrollTop = 0;
+  }
+  function answer(text, label) {
+    $("next").hidden = true;
+    showBubble(label, text);
+    setMood("thinking", "Thinking…");
+    speak(text);
+  }
+  // "stacked" = Socrates above the panel (phones in portrait); read it from the real layout
+  const stacked = { get matches() { return getComputedStyle(document.querySelector(".scene")).flexDirection === "column"; } };
+  function flash(card) { card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash"); }
+  function showSocrates() {
+    if (stacked.matches) $("bubble").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  // When Socrates doesn't know, offer the first three suggested questions, the projects and LinkedIn,
+  // so a visitor always has a next step.
+  function nextSteps(show) {
+    $("next").hidden = !show;
+    if (!show) return;
+    const row = $("next-chips");
+    row.replaceChildren();
+    CHIPS.slice(0, 3).forEach(([label, q]) => {
+      const b = el("button", { class: "chip", type: "button" }, label);
+      b.addEventListener("click", () => ask(q));
+      row.append(b);
+    });
+    const projects = el("button", { class: "chip", type: "button", id: "next-projects" }, "See projects");
+    projects.addEventListener("click", () => {
+      selectTab($("tab-ai")); nextSteps(false);
+      $("background").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    row.append(projects, el("a", { class: "chip", href: "https://www.linkedin.com/in/gcastaned" }, "LinkedIn"));
+  }
+  function ask(question) {
+    question = question.trim();
+    if (!question) return;
+    const found = findAnswer(question);
+    if (found.tab) selectTab($(found.tab));
+    answer(found.text, `You asked: ${question}`);
+    nextSteps(found.text === FALLBACK);
+    if (found.card) {
+      flash($(found.card));
+      // side by side, show the card; stacked on a phone, keep Socrates (and his answer) on screen
+      if (!stacked.matches) $(found.card).scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+    showSocrates();
+  }
+
+  $("ask").addEventListener("submit", (e) => { e.preventDefault(); $("question").blur(); ask($("question").value); $("question").value = ""; });
+  CHIPS.forEach(([label, q]) => {
+    const chip = el("button", { class: "chip", type: "button" }, label);
+    chip.addEventListener("click", () => ask(q));
+    $("chips").append(chip);
+  });
+
+  // ---------- listening (Chrome, Edge and Safari) ----------
+  const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (Recognition) {
+    const mic = $("mic");
+    mic.hidden = false;
+    let rec = null;
+    mic.addEventListener("click", () => {
+      if (rec) { rec.stop(); return; }
+      stopTalking();
+      rec = new Recognition();
+      rec.lang = "en-US"; rec.interimResults = true; rec.maxAlternatives = 1;
+      let finalText = "";
+      rec.onstart = () => { mic.setAttribute("aria-pressed", "true"); setMood("listening", "Listening…"); showBubble("Ask Socrates", "I'm listening…"); };
+      rec.onresult = (e) => {
+        const r = e.results[e.results.length - 1];
+        const text = r[0].transcript.trim();
+        $("question").value = text;
+        if (r.isFinal) finalText = text;
+      };
+      rec.onerror = (e) => {
+        if (e.error === "no-speech") showBubble("Microphone", "I didn't hear anything. Tap the mic and try again, or type your question.");
+        if (e.error === "not-allowed" || e.error === "service-not-allowed") showBubble("Microphone", "I can't hear you. Allow the microphone for this site, or type your question.");
+      };
+      rec.onend = () => {
+        mic.setAttribute("aria-pressed", "false"); rec = null;
+        const text = finalText || $("question").value;
+        $("question").value = "";
+        if (text.trim()) ask(text); else setMood("idle");
+      };
+      rec.start();
+    });
+  }
+</script>
+</body>
+</html>

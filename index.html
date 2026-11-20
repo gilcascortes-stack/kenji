@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kenji — voice assistant for macOS</title>
+<meta name="description" content="Kenji turns what you say into terminal commands on your Mac, and runs them only after you say yes.">
+<style>
+  :root {
+    --sky1: #8fd3ff; --sky2: #d9f1ff; --ink: #0f2a4f; --muted: #3d5a80;
+    --card: #ffffff; --accent: #f0a500; --accent-dark: #d98e00; --code: #0f2a4f; --code-ink: #e8f3ff;
+    --line: rgba(15, 42, 79, .15); --logo: #0f2a4f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --sky1: #0b1d36; --sky2: #12294a; --ink: #e8f3ff; --muted: #a9c2e0;
+      --card: #172f52; --code: #081427; --code-ink: #e8f3ff; --line: rgba(232, 243, 255, .15); --logo: #ffffff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; color: var(--ink); background: linear-gradient(180deg, var(--sky1), var(--sky2) 520px) var(--sky2);
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 860px; margin: 0 auto; padding: 0 16px 64px; }
+  header { text-align: center; padding: 64px 0 40px; }
+  .logo {
+    margin: 0; transform: rotate(-2deg); color: var(--logo); letter-spacing: 2px;
+    font: 900 clamp(56px, 16vw, 104px)/1 "Arial Black", "Helvetica Neue", Arial, sans-serif;
+    text-shadow: 2px 2px 0 var(--accent), 4px 4px 0 var(--accent), 6px 6px 0 var(--accent-dark),
+                 8px 8px 0 var(--accent-dark), 0 16px 24px rgba(15, 42, 79, .35);
+  }
+  .tagline { font-size: clamp(19px, 4vw, 23px); max-width: 600px; margin: 20px auto 28px; color: var(--ink); }
+  .buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 12px 22px; border-radius: 999px; font-weight: 700; text-decoration: none;
+    border: 3px solid var(--ink); color: var(--ink); background: var(--card);
+  }
+  .btn.primary { background: var(--accent); color: #0f2a4f; border-color: #0f2a4f; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  section { background: var(--card); border: 3px solid var(--ink); border-radius: 20px; padding: 24px; margin: 24px 0; }
+  h2 { margin: 0 0 12px; font-size: 24px; }
+  h3 { margin: 0 0 4px; font-size: 18px; }
+  p { margin: 0 0 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .grid div { border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+  .emoji { font-size: 28px; line-height: 1; display: block; margin-bottom: 8px; }
+  ol, ul { margin: 0; padding-left: 22px; }
+  li { margin: 6px 0; }
+  .chat { display: grid; gap: 10px; }
+  .say { max-width: 85%; padding: 10px 14px; border-radius: 16px; border: 2px solid var(--ink); }
+  .you { justify-self: end; background: var(--sky2); }
+  .kenji { background: var(--card); }
+  pre {
+    background: var(--code); color: var(--code-ink); border-radius: 12px; padding: 14px 16px;
+    overflow-x: auto; font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; margin: 8px 0 12px;
+  }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; }
+  kbd { border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6px; padding: 1px 6px; font-size: .9em; }
+  .note { color: var(--muted); font-size: 15px; }
+  footer { text-align: center; color: var(--muted); font-size: 15px; }
+  footer a, section a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1 class="logo">KENJI</h1>
+    <p class="tagline">A voice assistant for your Mac. Say what you want done; Kenji shows the terminal command and runs it only after you say <strong>“yes”</strong>.</p>
+    <div class="buttons">
+      <a class="btn primary" href="gilberto/">Meet the creator 🏛️</a>
+    </div>
+  </header>
+
+  <section aria-labelledby="how">
+    <h2 id="how">How a conversation goes</h2>
+    <div class="chat">
+      <div class="say you">Show me the five biggest files in my Downloads folder.</div>
+      <div class="say kenji">Here’s the command: <code>ls -lS ~/Downloads | head -6</code><br>Shall I run it?</div>
+      <div class="say you">Yes.</div>
+      <div class="say kenji">Done! The results are next to me.</div>
+    </div>
+  </section>
+
+  <section aria-labelledby="features">
+    <h2 id="features">What Kenji does</h2>
+    <div class="grid">
+      <div><span class="emoji" aria-hidden="true">🎙️</span><h3>Listens on your Mac</h3><p>Speech is transcribed locally with Whisper. Your voice never leaves the computer.</p></div>
+      <div><span class="emoji" aria-hidden="true">✅</span><h3>Asks before acting</h3><p>Every command is shown first. Deleting, moving, installing, <code>sudo</code> and network commands are flagged as risky.</p></div>
+      <div><span class="emoji" aria-hidden="true">🧪</span><h3>Smart mode</h3><p>Kenji becomes a curious scientist who researches your question on the web and cites his sources.</p></div>
+      <div><span class="emoji" aria-hidden="true">🏛️</span><h3>Socratic mode</h3><p>He questions your ideas one step at a time, then sums up what you discovered.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="see-it">
+    <h2 id="see-it">See Kenji in action</h2>
+    <p>Kenji is a personal project, and its code is private. Gilberto demonstrates it, and how he tested it, in interviews. <a href="gilberto/">Ask Socrates about Gilberto</a> to get in touch.</p>
+  </section>
+
+  <section aria-labelledby="safety">
+    <h2 id="safety">Safety</h2>
+    <ul>
+      <li>Kenji runs real shell commands. Read what he proposes before you say yes; silence or any “no” cancels.</li>
+      <li>His window server listens only on <code>127.0.0.1</code>, your own Mac, and needs a secret token before it will start listening or act on anything.</li>
+      <li>Only the transcribed text is sent to Claude, never your audio.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>© 2026 Gilberto Castañeda. All rights reserved.</p>
+  </footer>
+</main>
+</body>
+</html>

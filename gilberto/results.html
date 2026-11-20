@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light only">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Test results · Gilberto Castañeda</title>
+<meta name="description" content="Pass/fail results of the automated tests of Gilberto Castañeda's Socrates page and Pomodoro Android app.">
+<style>
+  :root { --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --ink: #1a1a2e; --text: #0f2a4f; --muted: #3a5a80; --sky: #bfe5ff; --card: #fff; --parchment: #fffaf0; --accent: #ffd23f;
+    --pass: #136c2e; --pass-bg: #e3f6e8; --fail: #a01818; --fail-bg: #fde6e6; --skip: #4a5a70; --skip-bg: #eef1f5; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: linear-gradient(#3d9be9, var(--sky) 420px) no-repeat, var(--sky); color: var(--text); font: 16px/1.5 var(--font); }
+  main { max-width: 1000px; margin: 0 auto; padding: 24px 16px 40px; }
+  .top { background: var(--parchment); border: 3px solid var(--ink); border-radius: 18px; padding: 16px 18px; color: var(--ink); }
+  h1 { margin: 0; font-size: 26px; line-height: 1.2; }
+  .top p { margin: 6px 0 0; }
+  .back { display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; padding: 0 16px; border: 3px solid var(--ink);
+    border-radius: 14px; background: var(--accent); color: var(--ink); font-weight: 800; text-decoration: none; }
+  .totals { font-weight: 800; }
+  .group { margin-top: 18px; background: var(--card); border: 3px solid var(--ink); border-radius: 18px; padding: 16px 18px; }
+  h2 { margin: 0; font-size: 20px; color: var(--ink); }
+  .what { margin: 4px 0 8px; }
+  .meta { margin: 0 0 12px; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 14px; color: var(--muted); }
+  .meta strong { color: var(--text); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 6px; border-top: 1px solid #d7e3f0; vertical-align: top; }
+  thead th { border-top: 0; font-size: 13px; color: var(--muted); }
+  tbody th { font-weight: 600; }
+  .note { display: block; font-weight: 400; font-size: 13px; color: var(--fail); }
+  .r { display: inline-block; padding: 2px 9px; border-radius: 999px; font-weight: 800; font-size: 13px; white-space: nowrap; }
+  .r.passed { color: var(--pass); background: var(--pass-bg); }
+  .r.failed { color: var(--fail); background: var(--fail-bg); }
+  .r.skipped { color: var(--skip); background: var(--skip-bg); font-weight: 600; }
+  footer { margin-top: 18px; font-size: 14px; text-align: center; }
+  footer a { color: var(--text); font-weight: 700; }
+  @media (max-width: 640px) {
+    table, thead, tbody, tr, th, td { display: block; }
+    thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    tr { border-top: 1px solid #d7e3f0; padding: 8px 0; }
+    th, td { border: 0; padding: 2px 0; }
+    td { display: flex; justify-content: space-between; gap: 12px; }
+    td::before { content: attr(data-label); color: var(--muted); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="top">
+    <h1>Test results</h1>
+    <p>Automated tests of Gilberto's Socrates page and his Pomodoro Android app. Each section names the tool that verified it. Only pass/fail results are published here; Gilberto walks through the test code in interviews.</p>
+    <p class="totals">99 passed · 2 failed · the failures are real app bugs the tests found</p>
+    <a class="back" href="./">Back to Socrates</a>
+  </header>
+<section class="group" id="playwright">
+  <h2>Socrates page in the browser</h2>
+  <p class="what">Checks the page the way a recruiter uses it: what shows on the first screen, the answers to typed and suggested questions, the next steps when Socrates doesn't know, the voice setting and the page's privacy.</p>
+  <ul class="meta">
+    <li><strong>Verified with:</strong> Playwright 1.65.1</li>
+    <li><strong>Where:</strong> Chrome · phone, Safari engine · iPhone, Chrome · desktop</li>
+    <li><strong>Last run:</strong> November 20, 2026</li>
+    <li><strong>Results:</strong> 53 passed · 0 failed</li>
+  </ul>
+  <table>
+    <thead><tr><th scope="col">Test</th><th scope="col">Chrome · phone</th><th scope="col">Safari engine · iPhone</th><th scope="col">Chrome · desktop</th></tr></thead>
+    <tbody>
+<tr><th scope="row">Name, role and LinkedIn are visible on the first screen without scrolling</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Location, remote work and work authorization are shown without asking</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">The LinkedIn button goes to Gilberto's profile</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">The page script runs under its security policy with no errors</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">No sound loads before the visitor taps something</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">A suggested question shows its answer and loads its voice clip</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Asking about remote work gets a yes</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Asking about work authorization says he is authorized to work in Canada</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Asking about relocation says he is not open to relocation</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">An unknown question offers next steps instead of a dead end</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Next steps disappear once a question is answered</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Asking about a project opens the Projects tab and highlights its card</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">The voice setting is remembered after a reload</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Tabs can be switched with the arrow keys</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">The page doesn't scroll sideways on a narrow phone</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r skipped">– Not applicable</span></td></tr>
+<tr><th scope="row">Shared links show Gilberto's name and role as the preview</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">The page sends nothing to other websites</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">The Test results button opens the results page</th><td data-label="Chrome · phone"><span class="r passed">✓ Pass</span></td><td data-label="Safari engine · iPhone"><span class="r passed">✓ Pass</span></td><td data-label="Chrome · desktop"><span class="r passed">✓ Pass</span></td></tr>
+    </tbody>
+  </table>
+</section>
+<section class="group" id="checks">
+  <h2>Socrates page content</h2>
+  <p class="what">Checks the facts and answers behind the page: Gilberto's name, role and LinkedIn agree everywhere, recruiter questions reach the right answer, every answer has its voice clip, and the page's security settings match its code.</p>
+  <ul class="meta">
+    <li><strong>Verified with:</strong> Node.js test runner (script checks)</li>
+    <li><strong>Where:</strong> The page's files, before publishing</li>
+    <li><strong>Last run:</strong> November 20, 2026</li>
+    <li><strong>Results:</strong> 40 passed · 0 failed</li>
+  </ul>
+  <table>
+    <thead><tr><th scope="col">Test</th><th scope="col">Result</th></tr></thead>
+    <tbody>
+<tr><th scope="row">The page has exactly one inline script</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">The security policy's script hash matches the page script</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Every job and project has a unique, valid ID</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">The published pages don't link to or describe how to get the private code</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Every link in the data is https</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Every answer has a recorded voice clip</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">No leftover clips that no answer uses</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Every clip is a valid audio file</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">No two answers share a clip name</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Name, role and LinkedIn agree across the page</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Remote work, work authorization and relocation answers say what Gilberto approved</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Answers never describe the page layout</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Socrates never claims to be AI or Kenji</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">The Pomodoro card's test counts match the latest Maestro report</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Is he open to remote work?&quot; → Remote work</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Can he work remotely?&quot; → Remote work</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Is he authorized to work in Canada?&quot; → Work authorization</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Does he need visa sponsorship?&quot; → Work authorization</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Would he relocate?&quot; → Relocation</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Is he willing to relocate to Toronto?&quot; → Relocation</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;What are his salary expectations?&quot; → Salary, start date and on-site work</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Is he open to hybrid work?&quot; → Salary, start date and on-site work</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;What is his test pass rate?&quot; → Test results</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;How was this page tested?&quot; → Test results</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Can I see his code?&quot; → Source code</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Has he used Selenium?&quot; → Not in his record</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Hi, does he have mobile experience?&quot; → Mobile testing</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Hello&quot; → Greetings</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Is this a chatbot?&quot; → Who is Socrates</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Is he a good QA engineer?&quot; → Testing and QA</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;How can I contact him?&quot; → Contact</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Where is he located?&quot; → Location</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;What certifications does he hold?&quot; → Certifications</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Tell me about Gilberto&quot; → About Gilberto</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Tell me about the Pomodoro app&quot; → Pomodoro project card</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Does he have a family?&quot; → not a project card</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;Does Gilberto know Kubernetes?&quot; → &quot;not in his record&quot; reply</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">&quot;asdf&quot; → &quot;not in his record&quot; reply</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Every suggested question gets a real answer</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">The salary reply doesn't catch everyday words like 'rate' or 'available'</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+    </tbody>
+  </table>
+</section>
+<section class="group" id="maestro">
+  <h2>Pomodoro Android app</h2>
+  <p class="what">UI tests of a small Android timer app, including what happens when the phone is rotated, locked, left and reopened, or when Android closes the app.</p>
+  <ul class="meta">
+    <li><strong>Verified with:</strong> Maestro</li>
+    <li><strong>Where:</strong> Android emulator (Pixel 9, Android 16)</li>
+    <li><strong>Last run:</strong> November 15, 2026</li>
+    <li><strong>Results:</strong> 6 passed · 2 failed</li>
+  </ul>
+  <table>
+    <thead><tr><th scope="col">Test</th><th scope="col">Result</th></tr></thead>
+    <tbody>
+<tr><th scope="row">Invalid focus lengths are rejected</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Rotate the phone mid-session<span class="note">App bug found: the timer resets when the phone is rotated.</span></th><td data-label="Result"><span class="r failed">✗ Fail</span></td></tr>
+<tr><th scope="row">Reset a running session</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Android closes the app in the background<span class="note">App bug found: the session is lost when Android closes the app in the background.</span></th><td data-label="Result"><span class="r failed">✗ Fail</span></td></tr>
+<tr><th scope="row">Lock the screen mid-session</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Leave the app and come back</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Custom focus length runs to completion</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+<tr><th scope="row">Pause and resume</th><td data-label="Result"><span class="r passed">✓ Pass</span></td></tr>
+    </tbody>
+  </table>
+</section>
+  <footer><p><a href="https://www.linkedin.com/in/gcastaned">Gilberto Castañeda on LinkedIn</a></p></footer>
+</main>
+</body>
+</html>
