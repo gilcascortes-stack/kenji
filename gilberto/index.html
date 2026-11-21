@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-qsn2sX6TBtksyuUG9p2e5Kf93m35LT9tQdUOLzusW4M='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-JLDaHLYZ34mSV8mPQeTBq5vm/gU3Xe+89ZhBR6vpl9E='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light only">
@@ -133,9 +133,10 @@
   .id-card .role { margin: 2px 0 0; font-size: 15px; font-weight: 700; }
   .id-card .facts { margin: 4px 0 0; font-size: 14px; color: var(--text); }
   .id-links { display: flex; justify-content: center; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
-  .id-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 3px solid var(--ink);
-    border-radius: 14px; background: var(--accent); color: var(--ink); font-weight: 800; font-size: 15px; text-decoration: none; }
-  .id-links a.alt { background: #fff; }
+  .id-links a, .id-links button { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 3px solid var(--ink);
+    border-radius: 14px; background: var(--accent); color: var(--ink); font: 800 15px var(--font); text-decoration: none; cursor: pointer; }
+  .id-links a.alt, .id-links button { background: #fff; }
+  .id-links button[aria-expanded="true"] { background: var(--ink); color: #fff; }
   /* shown when Socrates doesn't know: always a next step */
   .next { padding: 0 12px 12px; }
   .next p { margin: 0 0 6px; font-size: 13px; font-weight: 800; color: #8a6d2f; text-transform: uppercase; letter-spacing: .05em; }
@@ -288,6 +289,8 @@
         <p class="facts">Grimsby, Ontario, Canada · Open to remote work · Authorized to work in Canada</p>
         <div class="id-links">
           <a id="linkedin-link" href="https://www.linkedin.com/in/gcastaned">LinkedIn</a>
+          <button type="button" id="show-exp" data-tab="tab-exp" aria-controls="background" aria-expanded="false">Experience</button>
+          <button type="button" id="show-ai" data-tab="tab-ai" aria-controls="background" aria-expanded="false">Projects</button>
         </div>
       </header>
       <h2 class="sr-only" id="ask-heading">Ask Socrates about Gilberto</h2>
@@ -465,7 +468,7 @@
       </div>
     </section>
 
-    <section class="panel" id="background" tabindex="-1" aria-labelledby="bg-heading">
+    <section class="panel" id="background" tabindex="-1" aria-labelledby="bg-heading" hidden>
       <h2 class="sr-only" id="bg-heading">Gilberto's background</h2>
       <div class="tabs" role="tablist" aria-label="Gilberto's background">
         <button class="tab" role="tab" id="tab-exp" aria-controls="pane-exp" aria-selected="true">Professional Experience</button>
@@ -1229,18 +1232,32 @@
   PROJECTS.forEach((p) => $("aiList").append(card(p, "ai")));
 
   document.querySelector(".skip").addEventListener("click", (e) => {
-    e.preventDefault(); $("background").focus(); $("background").scrollIntoView({ block: "start" });
+    e.preventDefault(); selectTab($("tab-exp")); $("background").focus(); $("background").scrollIntoView({ block: "start" });
   });
 
   // ---------- tabs ----------
   const tabs = [$("tab-exp"), $("tab-ai")];
+  // The Experience and Projects panel stays hidden until the visitor asks for it
+  // (header buttons, a question Socrates answers with a card, or a link like ./#pomodoro).
+  const showButtons = [$("show-exp"), $("show-ai")];
   function selectTab(tab) {
+    $("background").hidden = false;
     tabs.forEach((t) => {
       const on = t === tab;
       t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1;
       $(t.getAttribute("aria-controls")).hidden = !on;
     });
+    showButtons.forEach((b) => b.setAttribute("aria-expanded", b.dataset.tab === tab.id));
   }
+  function hidePanel() {
+    $("background").hidden = true;
+    showButtons.forEach((b) => b.setAttribute("aria-expanded", "false"));
+  }
+  showButtons.forEach((b) => b.addEventListener("click", () => {
+    if (b.getAttribute("aria-expanded") === "true") { hidePanel(); return; }   // tap again to close
+    selectTab($(b.dataset.tab));
+    if (stacked.matches) $("background").scrollIntoView({ behavior: "smooth", block: "start" });
+  }));
   tabs.forEach((t, i) => {
     t.addEventListener("click", () => selectTab(t));
     t.addEventListener("keydown", (e) => {
