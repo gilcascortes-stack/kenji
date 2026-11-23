@@ -65,7 +65,23 @@
     transform: rotate(45deg) skew(10deg, 10deg);
   }
 
-  svg.hero-svg { width: 100%; height: min(48vh, 430px); display: block; overflow: visible; margin-top: 6px; }
+  svg.hero-svg { width: 100%; height: var(--hero-h); display: block; overflow: visible; }
+  /* Hologram: a glowing screen behind Socrates from the shoulders down. His head and shoulders rise out of it;
+     inside it he has scan lines, outside he is solid. */
+  .holo { --hero-h: min(48vh, 430px); position: relative; margin-top: 6px; }
+  .holo-screen, .holo-scan { position: absolute; left: 50%; bottom: 2%; top: 36%; width: calc(var(--hero-h) * .6); max-width: 100%;
+    transform: translateX(-50%); border-radius: 18px 18px 10px 10px; pointer-events: none; }
+  .holo-screen { background: linear-gradient(rgba(61, 155, 233, .55), rgba(191, 229, 255, .3));
+    box-shadow: inset 0 3px 0 #bff9ff, inset 0 0 26px rgba(127, 243, 255, .55), 0 0 18px rgba(127, 243, 255, .45); }
+  .holo-scan { overflow: hidden;
+    background: repeating-linear-gradient(to bottom, transparent 0 3px, rgba(160, 245, 255, .32) 3px 4px);
+    -webkit-mask: linear-gradient(transparent, #000 30%); mask: linear-gradient(transparent, #000 30%);
+    animation: holo-scan 3s linear infinite; }
+  @keyframes holo-scan { to { background-position: 0 40px; } }
+  .holo svg.hero-svg { position: relative; transform-origin: 50% 90%;
+    filter: drop-shadow(0 0 5px rgba(127, 243, 255, .9)) drop-shadow(0 16px 12px rgba(10, 30, 60, .3));
+    animation: holo-lean 4s ease-in-out infinite; }
+  @keyframes holo-lean { 50% { transform: translateY(-4px) scale(1.04); } }
   .ink { stroke: var(--ink); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
   .line { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linecap: round; }
   .aura-stop { stop-color: var(--aura); transition: stop-color .4s; }
@@ -112,7 +128,7 @@
   .card a, footer a { text-decoration: underline; text-underline-offset: 2px; }
   footer p { margin: 0 0 6px; max-width: 760px; margin-inline: auto; }
   /* WCAG 2.2.2: visitors can pause all moving content */
-  body[data-motion="paused"] *, body[data-motion="paused"] *::before { animation-play-state: paused !important; transition: none !important; }
+  body[data-motion="paused"] *, body[data-motion="paused"] *::before, body[data-motion="paused"] *::after { animation-play-state: paused !important; transition: none !important; }
   .btn {
     padding: 0 14px; min-height: 46px; border: 3px solid var(--ink); border-radius: 14px; background: var(--accent);
     font: 800 15px var(--font); color: var(--ink); cursor: pointer;
@@ -191,7 +207,7 @@
     .scene { flex-direction: column; align-items: center; }
     .stage { position: static; flex: none; width: min(420px, 100%); }
     .panel { width: 100%; flex: none; }
-    svg.hero-svg { height: min(40vh, 340px); }
+    .holo { --hero-h: min(40vh, 340px); }
   }
   @media (max-width: 480px) {
     .tab { font-size: 14px; padding: 9px 6px; }
@@ -210,7 +226,7 @@
   }
   @media (max-width: 480px) {
     .page { padding-top: max(16px, env(safe-area-inset-top)); }
-    svg.hero-svg { height: min(26svh, 210px); }
+    .holo { --hero-h: min(26svh, 210px); }
     .id-card h1 { font-size: 20px; }
     .bubble { font-size: 15px; }
     .panel { padding: 14px 14px 18px; border-radius: 16px; }
@@ -220,7 +236,7 @@
   /* phones held sideways: very little height */
   @media (max-height: 500px) and (orientation: landscape) {
     .page { padding-top: max(10px, env(safe-area-inset-top)); }
-    svg.hero-svg { height: 170px; }
+    .holo { --hero-h: 170px; }
     .bubble { max-height: 130px; }
   }
   /* phone held sideways: Socrates beside the panel instead of above it */
@@ -301,6 +317,8 @@
           <div class="chips" id="next-chips" role="group" aria-label="Next steps"></div>
         </div>
       </div>
+<div class="holo">
+      <div class="holo-screen" aria-hidden="true"></div>
 <svg class="hero-svg" viewBox="0 0 300 560" role="img" aria-label="Socrates, an animated philosopher on a cloud">
       <defs>
         <radialGradient id="auraGrad" cx="50%" cy="50%" r="50%">
@@ -452,6 +470,8 @@
         <path d="M256 80 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 Z"/>
       </g>
     </svg>
+      <div class="holo-scan" aria-hidden="true"></div>
+      </div>
       <div class="status" id="status" aria-hidden="true"></div>
       <label class="ask-label" for="question">Your question about Gilberto</label>
       <form class="ask" id="ask" autocomplete="off" aria-label="Ask Socrates">
