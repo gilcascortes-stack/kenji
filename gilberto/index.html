@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-JLDaHLYZ34mSV8mPQeTBq5vm/gU3Xe+89ZhBR6vpl9E='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-0mOedas0vcTl7gRKbTZpKcJWEyJnrgpHDHFpLKJDxlI='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light only">
@@ -66,10 +66,9 @@
   }
 
   svg.hero-svg { width: 100%; height: var(--hero-h); display: block; overflow: visible; }
-  /* Hologram: a cyan glow around Socrates and a slow lean toward the visitor. */
+  /* Socrates leans slowly toward the visitor. */
   .holo { --hero-h: min(48vh, 430px); margin-top: 6px; }
   .holo svg.hero-svg { transform-origin: 50% 90%;
-    filter: drop-shadow(0 0 5px rgba(127, 243, 255, .9)) drop-shadow(0 16px 12px rgba(10, 30, 60, .3));
     animation: holo-lean 4s ease-in-out infinite; }
   @keyframes holo-lean { 50% { transform: translateY(-4px) scale(1.04); } }
   .ink { stroke: var(--ink); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
@@ -89,7 +88,7 @@
   body[data-talking="true"] .mouth-talk { display: inline; }
   .mouth-talk { transform-origin: 150px 210px; animation: talk .18s ease-in-out infinite alternate; }
   @keyframes talk { from { transform: scaleY(.35); } to { transform: scaleY(1.05); } }
-  body[data-mood="thinking"] .sparks { display: inline; }
+  body[data-mood="thinking"] .sparks, body[data-sparkle="on"] .sparks { display: inline; }   /* stars, as in Kenji's window */
   .sparks path { animation: spark 1s ease-in-out infinite; }
   .sparks path:nth-child(2) { animation-delay: .25s; }
   .sparks path:nth-child(3) { animation-delay: .5s; }
@@ -1440,9 +1439,16 @@
     });
     row.append(projects, el("a", { class: "chip", href: "https://www.linkedin.com/in/gcastaned" }, "LinkedIn"));
   }
+  let sparkleTimer;
+  function sparkle() {   // the twinkling stars from Kenji's window, for 2 seconds after each question
+    body.dataset.sparkle = "on";
+    clearTimeout(sparkleTimer);
+    sparkleTimer = setTimeout(() => { body.dataset.sparkle = "off"; }, 2000);
+  }
   function ask(question) {
     question = question.trim();
     if (!question) return;
+    sparkle();
     const found = findAnswer(question);
     if (found.tab) selectTab($(found.tab));
     answer(found.text, `You asked: ${question}`);
