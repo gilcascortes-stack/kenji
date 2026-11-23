@@ -66,19 +66,12 @@
   }
 
   svg.hero-svg { width: 100%; height: var(--hero-h); display: block; overflow: visible; }
-  /* Hologram: a glowing screen behind Socrates from the shoulders down. His head and shoulders rise out of it;
-     inside it he has scan lines, outside he is solid. */
-  .holo { --hero-h: min(48vh, 430px); position: relative; margin-top: 6px; }
-  .holo-screen, .holo-scan { position: absolute; left: 50%; bottom: 2%; top: 36%; width: calc(var(--hero-h) * .6); max-width: 100%;
-    transform: translateX(-50%); border-radius: 18px 18px 10px 10px; pointer-events: none; }
-  .holo-screen { background: linear-gradient(rgba(61, 155, 233, .55), rgba(191, 229, 255, .3));
-    box-shadow: inset 0 3px 0 #bff9ff, inset 0 0 26px rgba(127, 243, 255, .55), 0 0 18px rgba(127, 243, 255, .45); }
-  .holo-scan { overflow: hidden;
-    background: repeating-linear-gradient(to bottom, transparent 0 3px, rgba(160, 245, 255, .32) 3px 4px);
-    -webkit-mask: linear-gradient(transparent, #000 30%); mask: linear-gradient(transparent, #000 30%);
-    animation: holo-scan 3s linear infinite; }
-  @keyframes holo-scan { to { background-position: 0 40px; } }
-  .holo svg.hero-svg { position: relative; transform-origin: 50% 90%;
+  /* Hologram: a glowing glass screen drawn inside the SVG behind Socrates from the shoulders down, so it scales
+     and lines up with him on every screen. His head and shoulders rise out of it; scan lines only inside it. */
+  .holo { --hero-h: min(48vh, 430px); margin-top: 6px; }
+  .scanlines { animation: holo-scan 1s linear infinite; }
+  @keyframes holo-scan { to { transform: translateY(5px); } }
+  .holo svg.hero-svg { transform-origin: 50% 90%;
     filter: drop-shadow(0 0 5px rgba(127, 243, 255, .9)) drop-shadow(0 16px 12px rgba(10, 30, 60, .3));
     animation: holo-lean 4s ease-in-out infinite; }
   @keyframes holo-lean { 50% { transform: translateY(-4px) scale(1.04); } }
@@ -318,7 +311,6 @@
         </div>
       </div>
 <div class="holo">
-      <div class="holo-screen" aria-hidden="true"></div>
 <svg class="hero-svg" viewBox="0 0 300 560" role="img" aria-label="Socrates, an animated philosopher on a cloud">
       <defs>
         <radialGradient id="auraGrad" cx="50%" cy="50%" r="50%">
@@ -326,9 +318,23 @@
           <stop offset="55%" class="aura-stop" stop-opacity=".4"/>
           <stop offset="100%" class="aura-stop" stop-opacity="0"/>
         </radialGradient>
+        <linearGradient id="glassGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3d9be9" stop-opacity=".55"/>
+          <stop offset="100%" stop-color="#bfe5ff" stop-opacity=".3"/>
+        </linearGradient>
+        <clipPath id="glassClip"><rect x="26" y="210" width="248" height="342" rx="20"/></clipPath>
+        <pattern id="scanPat" width="10" height="5" patternUnits="userSpaceOnUse"><rect y="3.6" width="10" height="1.4" fill="#a0f5ff" fill-opacity=".5"/></pattern>
+        <linearGradient id="scanFadeGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff" stop-opacity="0"/><stop offset="30%" stop-color="#fff"/></linearGradient>
+        <mask id="scanFade" maskUnits="userSpaceOnUse" x="26" y="200" width="248" height="362"><rect x="26" y="210" width="248" height="342" fill="url(#scanFadeGrad)"/></mask>
       </defs>
       <ellipse class="aura" cx="150" cy="280" rx="150" ry="270" fill="url(#auraGrad)"/>
       
+
+      <g class="glass" aria-hidden="true">
+        <rect x="26" y="210" width="248" height="342" rx="20" fill="url(#glassGrad)"/>
+        <rect x="26" y="210" width="248" height="342" rx="20" fill="none" stroke="#7ff3ff" stroke-opacity=".35" stroke-width="10"/>
+        <rect x="26" y="210" width="248" height="342" rx="20" fill="none" stroke="#bff9ff" stroke-width="2.5"/>
+      </g>
 
       <g class="char">
         <!-- legs: baggy red gi pants with light blue ankle wraps -->
@@ -463,6 +469,10 @@
                   </g>
       </g>
 
+      <g clip-path="url(#glassClip)" aria-hidden="true">
+        <g mask="url(#scanFade)"><rect class="scanlines" x="26" y="200" width="248" height="362" fill="url(#scanPat)"/></g>
+      </g>
+
       <g class="sparks" fill="#fff" stroke="var(--ink)" stroke-width="1.5">
         <path d="M40 120 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 Z"/>
         <path d="M258 220 l3 6 6 3 -6 3 -3 6 -3 -6 -6 -3 6 -3 Z"/>
@@ -470,7 +480,6 @@
         <path d="M256 80 l4 8 8 4 -8 4 -4 8 -4 -8 -8 -4 8 -4 Z"/>
       </g>
     </svg>
-      <div class="holo-scan" aria-hidden="true"></div>
       </div>
       <div class="status" id="status" aria-hidden="true"></div>
       <label class="ask-label" for="question">Your question about Gilberto</label>
