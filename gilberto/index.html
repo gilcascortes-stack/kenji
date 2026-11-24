@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-0mOedas0vcTl7gRKbTZpKcJWEyJnrgpHDHFpLKJDxlI='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-jh9daNWS3DB5i6OM+NPj+p3EQwFCOtuU5jEPxdFDLFA='; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light only">
@@ -67,7 +67,7 @@
 
   svg.hero-svg { width: 100%; height: var(--hero-h); display: block; overflow: visible; }
   /* Socrates leans slowly toward the visitor. */
-  .holo { --hero-h: min(48vh, 430px); margin-top: 6px; }
+  .holo { --hero-h: min(48vh, 430px); margin-top: 22px; }   /* room between the bubble's tail and his head, even mid-bob */
   .holo svg.hero-svg { transform-origin: 50% 90%;
     animation: holo-lean 4s ease-in-out infinite; }
   @keyframes holo-lean { 50% { transform: translateY(-4px) scale(1.04); } }
@@ -300,7 +300,7 @@
       </header>
       <h2 class="sr-only" id="ask-heading">Ask Socrates about Gilberto</h2>
       <div class="bubble-wrap">
-        <div class="bubble" id="bubble" role="region" aria-label="Socrates' answer" aria-live="polite" tabindex="0"><span class="q">Ask Socrates</span>What do you want to know about Gilberto?</div>
+        <div class="bubble" id="bubble" role="region" aria-label="Socrates' answer" aria-live="polite" tabindex="0"><span class="q">Ask Socrates</span><span id="greeting">What do you want to know about Gilberto? Type a question to interact with me.</span></div>
         <div class="next" id="next" hidden>
           <p>Try one of these</p>
           <div class="chips" id="next-chips" role="group" aria-label="Next steps"></div>
@@ -1473,6 +1473,9 @@
   if (Recognition) {
     const mic = $("mic");
     mic.hidden = false;
+    // where voice input works, invite the visitor to use the microphone
+    $("greeting").replaceChildren("What do you want to know about Gilberto? Tap on ",
+      el("span", { "aria-hidden": "true" }, "🎙️"), el("span", { class: "sr-only" }, "the microphone button"), " to interact with me.");
     let rec = null;
     mic.addEventListener("click", () => {
       if (rec) { rec.stop(); return; }
